@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # sanhak-frontend-react
 =======
 ## Page demo
