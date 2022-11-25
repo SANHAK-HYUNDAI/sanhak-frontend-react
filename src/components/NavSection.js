@@ -11,7 +11,7 @@ import Iconify from './Iconify';
 
 const ListItemStyle = styled((props) => <ListItemButton disableGutters {...props} />)(({ theme }) => ({
   ...theme.typography.body2,
-  height: 48,
+  height: 70, // nave menu간격
   position: 'relative',
   textTransform: 'capitalize',
   color: theme.palette.text.secondary,

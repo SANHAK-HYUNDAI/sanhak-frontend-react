@@ -12,25 +12,25 @@ const navConfig = [
     icon: getIcon('eva:pie-chart-2-fill'),
   },
   {
-    title: 'product',
-    path: '/dashboard/products',
-    icon: getIcon('eva:shopping-bag-fill'),
-  },
-  {
-    title: 'Search Info',
+    title: 'Search',
     path: '/dashboard/user',
-    icon: getIcon('eva:people-fill'),
+    icon: getIcon('material-symbols:manage-search-rounded'),
   },
   {
-    title: 'Ro data',
+    title: 'Ro Data',
     path: '/dashboard/ROData',
     icon: getIcon('eva:file-text-fill'),
   },
   {
-    title: 'Naver cafe',
+    title: 'Naver Cafe Data',
     path: '/dashboard/NaverCafe',
     icon: getIcon('eva:file-text-fill'),
   },
+  {
+    title: 'Guide',
+    path: '/dashboard/products',
+    icon: getIcon('ep:guide'),
+  }
 
   /*
   {
