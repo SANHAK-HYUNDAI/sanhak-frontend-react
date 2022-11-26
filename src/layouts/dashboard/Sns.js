@@ -4,18 +4,19 @@ import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton } from '@mui/material';
 // components
 import MenuPopover from '../../components/MenuPopover';
+
 // ----------------------------------------------------------------------
 
-const SNS = [
+const LANGS = [
   {
     value: 'en',
     label: 'English',
-    icon: '/static/icons/blog.svg',
+    icon: '/static/icons/blog.png',
   },
   {
     value: 'kr',
     label: 'Korean',
-    icon: '/static/icons/naver.png',
+    icon: '/static/icons/naver.svg',
   },
 ];
 
@@ -24,9 +25,8 @@ const SNS = [
 export default function LanguagePopover() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
-  const url = "https://blog.hyundai-transys.com"
+
   const handleOpen = () => {
-    console.log('The link was clicked.');
     setOpen(true);
   };
 
@@ -40,19 +40,40 @@ export default function LanguagePopover() {
         ref={anchorRef}
         onClick={handleOpen}
         sx={{
-          padding: 3,
-          width: 25, // 아이콘 크기 조정
-          height: 25,
+          padding: 0,
+          width: 44,
+          height: 44,
           ...(open && {
             bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.focusOpacity),
           }),
         }}
       >
-        <a href={url}>
-        <img src={SNS[0].icon} alt={SNS[0].label}/>
-        </a>
+        <img src={LANGS[0].icon} alt={LANGS[0].label} />
       </IconButton>
 
+
+      
+      <MenuPopover
+        open={open}
+        onClose={handleClose}
+        anchorEl={anchorRef.current}
+        sx={{
+          mt: 1.5,
+          ml: 0.75,
+          width: 180,
+          '& .MuiMenuItem-root': { px: 1, typography: 'body2', borderRadius: 0.75 },
+        }}
+      >
+        <Stack spacing={0.75}>
+          {LANGS.map((option) => (
+            <MenuItem key={option.value} selected={option.value === LANGS[0].value} onClick={() => handleClose()}>
+              <Box component="img" alt={option.label} src={option.icon} sx={{ width: 28, mr: 2 }} />
+
+              {option.label}
+            </MenuItem>
+          ))}
+        </Stack>
+      </MenuPopover>
     </>
   );
 }

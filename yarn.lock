@@ -1798,6 +1798,11 @@
   "resolved" "https://registry.npmjs.org/@popperjs/core/-/core-2.11.5.tgz"
   "version" "2.11.5"
 
+"@remix-run/router@1.0.3":
+  "integrity" "sha512-ceuyTSs7PZ/tQqi19YZNBc5X7kj1f8p+4DIyrcIYFY9h+hd1OKm4RqtiWldR9eGEvIiJfsqwM4BsuCtRIuEw6Q=="
+  "resolved" "https://registry.npmjs.org/@remix-run/router/-/router-1.0.3.tgz"
+  "version" "1.0.3"
+
 "@rollup/plugin-babel@^5.2.0":
   "integrity" "sha512-WFfdLWU/xVWKeRQnKmIAQULUI7Il0gZnBIH/ZFO069wYIfPu+8zrfp/KMW0atmELoRDq8FbiP3VCss9MhCut7Q=="
   "resolved" "https://registry.npmjs.org/@rollup/plugin-babel/-/plugin-babel-5.3.1.tgz"
@@ -5035,7 +5040,7 @@
     "capital-case" "^1.0.4"
     "tslib" "^2.0.3"
 
-"history@^5.2.0", "history@^5.3.0":
+"history@^5.3.0":
   "integrity" "sha512-ZqaKwjjrAYUYfLG+htGaIIZ4nioX2L70ZUMIFysS3xvBsSG4x/n1V6TXV3N8ZYNuFGlDirFg32T7B6WOUPDYcQ=="
   "resolved" "https://registry.npmjs.org/history/-/history-5.3.0.tgz"
   "version" "5.3.0"
@@ -7718,20 +7723,20 @@
   "resolved" "https://registry.npmjs.org/react-refresh/-/react-refresh-0.11.0.tgz"
   "version" "0.11.0"
 
-"react-router-dom@^6.3.0":
-  "integrity" "sha512-uaJj7LKytRxZNQV8+RbzJWnJ8K2nPsOOEuX7aQstlMZKQT0164C+X2w6bnkqU3sjtLvpd5ojrezAyfZ1+0sStw=="
-  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.3.0.tgz"
-  "version" "6.3.0"
+"react-router-dom@^6.4.3":
+  "integrity" "sha512-MiaYQU8CwVCaOfJdYvt84KQNjT78VF0TJrA17SIQgNHRvLnXDJO6qsFqq8F/zzB1BWZjCFIrQpu4QxcshitziQ=="
+  "resolved" "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.4.3.tgz"
+  "version" "6.4.3"
   dependencies:
-    "history" "^5.2.0"
-    "react-router" "6.3.0"
+    "@remix-run/router" "1.0.3"
+    "react-router" "6.4.3"
 
-"react-router@6.3.0":
-  "integrity" "sha512-7Wh1DzVQ+tlFjkeo+ujvjSqSJmkt1+8JO+T5xklPlgrh70y7ogx75ODRW0ThWhY7S+6yEDks8TYrtQe/aoboBQ=="
-  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.3.0.tgz"
-  "version" "6.3.0"
+"react-router@6.4.3":
+  "integrity" "sha512-BT6DoGn6aV1FVP5yfODMOiieakp3z46P1Fk0RNzJMACzE7C339sFuHebfvWtnB4pzBvXXkHP2vscJzWRuUjTtA=="
+  "resolved" "https://registry.npmjs.org/react-router/-/react-router-6.4.3.tgz"
+  "version" "6.4.3"
   dependencies:
-    "history" "^5.2.0"
+    "@remix-run/router" "1.0.3"
 
 "react-scripts@^5.0.1":
   "integrity" "sha512-8VAmEm/ZAwQzJ+GOMLbBsTdDKOpuZh7RPs0UymvBR2vRk4iZWCskjbFnxqjrzoIvlNNRZ3QJFx6/qDSi6zSnaQ=="

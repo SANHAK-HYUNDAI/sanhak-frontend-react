@@ -43,18 +43,17 @@ export default function DashboardNavbar({ onOpenSidebar }) {
   return (
     <RootStyle>
       <ToolbarStyle>
+        {/* nav 펼치기 */}
         <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
 
         {/* <Searchbar /> */}
         <Box sx={{ flexGrow: 1 }} />
-
-        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
+        {/* 4개 아이콘 간격 조정 */}
+        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2.5 }}>
           <LanguagePopover />
-          {/*
-          <NotificationsPopover />
-          */}
+          {/* <NotificationsPopover /> */}
           <AccountPopover />
         </Stack>
       </ToolbarStyle>
