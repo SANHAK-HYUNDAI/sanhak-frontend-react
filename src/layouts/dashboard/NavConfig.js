@@ -13,12 +13,12 @@ const navConfig = [
   },
   {
     title: 'Search',
-    path: '/dashboard/user',
+    path: '/dashboard/Search',
     icon: getIcon('material-symbols:manage-search-rounded'),
   },
   {
     title: 'Ro Data',
-    path: '/dashboard/ROData',
+    path: '/dashboard/RoData',
     icon: getIcon('eva:file-text-fill'),
   },
   {
@@ -28,7 +28,7 @@ const navConfig = [
   },
   {
     title: 'Guide',
-    path: '/dashboard/products',
+    path: '/dashboard/Guide',
     icon: getIcon('ep:guide'),
   }
 
