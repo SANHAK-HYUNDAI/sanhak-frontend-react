@@ -6,7 +6,7 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Iconify from '../../components/Iconify';
 // import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
+import TopIcons from './TopIcons';
 // import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
@@ -51,8 +51,8 @@ export default function DashboardNavbar({ onOpenSidebar }) {
         {/* <Searchbar /> */}
         <Box sx={{ flexGrow: 1 }} />
         {/* 4개 아이콘 간격 조정 */}
-        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 2.5 }}>
-          <LanguagePopover />
+        <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
+          <TopIcons />
           {/* <NotificationsPopover /> */}
           {/* <AccountPopover /> */}
         </Stack>
