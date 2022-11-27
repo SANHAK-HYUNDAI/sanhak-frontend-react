@@ -1,27 +1,38 @@
 import { useRef, useState } from 'react';
 // material
-import { alpha } from '@mui/material/styles';
 import { Box, MenuItem, Stack, IconButton } from '@mui/material';
-// components
-import MenuPopover from '../../components/MenuPopover';
+// Icons
+import { Icon } from '@iconify/react';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 // ----------------------------------------------------------------------
 
 const SNS = [
   {
-    value: 'en',
-    label: 'English',
+    value: 'blog',
     icon: '/static/icons/blog.svg',
+    width :'5%',
   },
   {
-    value: 'kr',
-    label: 'Korean',
+    value: 'naver',
     icon: '/static/icons/naver.png',
+    width : '30%',
+  },
+  {
+    value: 'insta',
+    icon: '/static/icons/insta.png',
+    width : '30%',
+  },
+  {
+    value: 'youtube',
+    icon: '/static/icons/youtube.png',
+    width : '30%',
   },
 ];
 
 // ----------------------------------------------------------------------
 
-export default function LanguagePopover() {
+export default function IconButtonStyles() {
   const anchorRef = useRef(null);
   const [open, setOpen] = useState(false);
   const url = "https://blog.hyundai-transys.com"
@@ -36,22 +47,20 @@ export default function LanguagePopover() {
 
   return (
     <>
-      <IconButton
-        ref={anchorRef}
-        onClick={handleOpen}
-        sx={{
-          padding: 3,
-          width: 25, // 아이콘 크기 조정
-          height: 25,
-          ...(open && {
-            bgcolor: (theme) => alpha(theme.palette.primary.main, theme.palette.action.focusOpacity),
-          }),
-        }}
-      >
-        <a href={url}>
-        <img src={SNS[0].icon} alt={SNS[0].label}/>
-        </a>
+    <Stack direction="row" alignItems="center" spacing={1}>
+      <IconButton>
+       <Icon icon="tabler:brand-blogger" />
       </IconButton>
+      <IconButton>
+        <Icon icon="tabler:circle-letter-n" />
+      </IconButton>
+      <IconButton>
+        <Icon icon="ri:instagram-line" />
+      </IconButton>
+      <IconButton>
+        <Icon icon="mingcute:youtube-line" />
+      </IconButton>
+    </Stack>
 
     </>
   );
