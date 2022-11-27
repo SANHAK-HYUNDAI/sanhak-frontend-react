@@ -6,7 +6,7 @@ import { Box, Stack, AppBar, Toolbar, IconButton } from '@mui/material';
 import Iconify from '../../components/Iconify';
 // import Searchbar from './Searchbar';
 import AccountPopover from './AccountPopover';
-import LanguagePopover from './LanguagePopover';
+import TopIcons from './TopIcons';
 // import NotificationsPopover from './NotificationsPopover';
 
 // ----------------------------------------------------------------------
@@ -43,19 +43,18 @@ export default function DashboardNavbar({ onOpenSidebar }) {
   return (
     <RootStyle>
       <ToolbarStyle>
+        {/* nav 펼치기 */}
         <IconButton onClick={onOpenSidebar} sx={{ mr: 1, color: 'text.primary', display: { lg: 'none' } }}>
           <Iconify icon="eva:menu-2-fill" />
         </IconButton>
 
         {/* <Searchbar /> */}
         <Box sx={{ flexGrow: 1 }} />
-
+        {/* 4개 아이콘 간격 조정 */}
         <Stack direction="row" alignItems="center" spacing={{ xs: 0.5, sm: 1.5 }}>
-          <LanguagePopover />
-          {/*
-          <NotificationsPopover />
-          */}
-          <AccountPopover />
+          <TopIcons />
+          {/* <NotificationsPopover /> */}
+          {/* <AccountPopover /> */}
         </Stack>
       </ToolbarStyle>
     </RootStyle>
