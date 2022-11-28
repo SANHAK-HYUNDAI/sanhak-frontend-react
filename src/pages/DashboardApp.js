@@ -6,7 +6,7 @@ import { Grid, Container, Typography } from '@mui/material';
 import Page from '../components/Page';
 import Card from "./Card";
 import Iconify from '../components/Iconify';
-// sections 2222
+// sections
 import {
   AppTasks,
   AppNewsUpdate,
