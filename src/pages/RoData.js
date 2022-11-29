@@ -1,9 +1,6 @@
 // material
-import { Grid, Button, Container, Stack, Typography } from '@mui/material';
+import { Grid, Container, Stack, Typography } from '@mui/material';
 import * as React from 'react';
-import Paper from '@mui/material/Paper';
-import { styled } from '@mui/material/styles';
-import { faker } from '@faker-js/faker';
 
 // components
 import Page from '../components/Page';
@@ -64,23 +61,29 @@ return (
       Ro data
     </Typography>
   </Stack>
-  <Grid container spacing={2}>
-    <img src={wordcloud} alt="wordcloud" width="400" height="350" />
+
+  <Grid container spacing={0}>
+    <Grid item xs={15} md={8} lg={8}>
+      <img src={wordcloud} alt="wordcloud" width="800" height="650" />
+      </Grid>
+
+      <Grid item xs={15} md={6} lg={4}>
+      <img src={wordcloud} alt="wordcloud" width="300" height="250" />
+      </Grid>
   </Grid>
 
-  {/** big category graph */}
   <Grid container spacing={2}>
     <Grid item xs={15} md={8} lg={8}>
       <AppConversionRates
         title="Big Categories" chartData = {BigCategoryItem}
       />
     </Grid>
-
-    <Grid item xs={12} md={6} lg={4}>
-  <FolderList title="Sub Categories" list = {SubCategoryItem}/>
+    
+    <Grid item xs={15} md={6} lg={4}>
+      <FolderList title="Sub Categories" list = {SubCategoryItem}/>
     </Grid>
 
-    </Grid>
+  </Grid>
 </Container>
 </Page>
 );
