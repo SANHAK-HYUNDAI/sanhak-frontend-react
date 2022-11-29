@@ -12,6 +12,7 @@ import { Card, CardHeader } from '@mui/material';
 
 FolderList.propTypes = {
   title: PropTypes.string,
+  list: PropTypes.array.isRequired,
 };
 
 export default function FolderList({title, list}) {
@@ -25,7 +26,7 @@ export default function FolderList({title, list}) {
             <ImageIcon />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Photos" secondary="Jan 9, 2014" />
+        <ListItemText primary={list.subcategory} secondary= {list.probability}/>
       </ListItem>
       <ListItem>
         <ListItemAvatar>
