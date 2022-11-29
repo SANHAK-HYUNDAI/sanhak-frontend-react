@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import sheet from '../images/sheet.PNG'
+import sheet from '../../images/sheet.PNG'
 
 export default function MediaCard() {
   return (
@@ -18,11 +18,10 @@ export default function MediaCard() {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          #Tag
+          #Tag2
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Lizards are a widespread group of squamate reptiles, with over 6,000
-          species, ranging across all continents except Antarctica
+        태그 2에대한 내용
         </Typography>
       </CardContent>
       <CardActions>
