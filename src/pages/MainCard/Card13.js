@@ -26,7 +26,7 @@ export default function MediaCard() {
                     오디오/AVN 주변장치USB작동불량<br />
                     공조 불량_에어컨 시원해지지 않음<br />
                     충/방전 불량_방전<br />
-                    과열_간헐적<br />
+                    과열_간헐적
                 </Typography>
             </CardContent>
             <CardActions>

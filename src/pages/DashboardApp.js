@@ -43,63 +43,86 @@ export default function DashboardApp() {
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Good Morning ! 
+          Good Morning !
         </Typography>
         <Typography variant="h6" sx={{ mb: 3 }}>
-          항목 선택 
+          항목 선택<br />
+          <hr
+            style={{
+              position: 'absolute',
+              width: '82.91px',
+              height: '0px',
+              border: '1px solid #BCBCBC',
+            }}
+          />
+
         </Typography>
-        
 
-        <Grid container spacing={2}>
-          <Grid item xs={2}>
-              <Card1/>
+        <Grid container spacing={1}>
+          { /* 부품 외관  */}
+          <Grid item xs={1.6}>
+            <Card1 />
           </Grid>
-          <Grid item xs={2}>
-              <Card2/>
+          { /* 시트 작동  */}
+          <Grid item xs={1.6}>
+            <Card2 />
           </Grid>
-          <Grid item xs={2}>
-              <Card3/>
+          { /* 시트 소음  */}
+          <Grid item xs={1.6}>
+            <Card3 />
           </Grid>
-          <Grid item xs={2}>
-              <Card4/>
+          { /* 작동 불량  */}
+          <Grid item xs={1.6}>
+            <Card4 />
           </Grid>
-          <Grid item xs={2}>
-              <Card5/>
+          { /* 소음/이음  */}
+          <Grid item xs={1.6}>
+            <Card5 />
           </Grid>
-          <Grid item xs={2}>
-              <Card6/>
+          { /* 냄새 과다  */}
+          <Grid item xs={1.6}>
+            <Card6 />
           </Grid>
-          <Grid item xs={2}>
-              <Card7/>
+          { /* 조립 문제  */}
+          <Grid item xs={1.6}>
+            <Card7 />
           </Grid>
-
-          <Grid item xs={2}>
-              <Card8/>
+          { /* 도어 개폐  */}
+          <Grid item xs={1.5}>
+            <Card8 />
           </Grid>
-          <Grid item xs={2}>
-              <Card9/>
+          { /* 기밀 불량  */}
+          <Grid item xs={1.5}>
+            <Card9 />
           </Grid>
-          <Grid item xs={2}>
-              <Card10/>
+          { /* 사용/위치  */}
+          <Grid item xs={1.5}>
+            <Card10 />
           </Grid>
-          <Grid item xs={2}>
-              <Card11/>
+          { /* 진동  */}
+          <Grid item xs={1.5}>
+            <Card15 />
           </Grid>
-          <Grid item xs={2}>
-              <Card12/>
+          { /* 기타  */}
+          <Grid item xs={1.5}>
+            <Card13 />
           </Grid>
-          <Grid item xs={2}>
-              <Card13/>
+          { /* 부품 도장  */}
+          <Grid item sm={1.3}>
+            <Card11 />
           </Grid>
-          <Grid item xs={2}>
-              <Card14/>
+          { /* 경고등  */}
+          <Grid item sm={1.2}>
+            <Card14 />
           </Grid>
-          <Grid item xs={2}>
-              <Card15/>
+          { /* 녹 발생  */}
+          <Grid item sm={1.2}>
+            <Card12 />
           </Grid>
         </Grid>
 
-          {/*
+
+        {/*
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
           </Grid>
@@ -116,7 +139,7 @@ export default function DashboardApp() {
             <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid> */}
 
-          {/* 차트
+        {/* 차트
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Website Visits"
@@ -158,7 +181,7 @@ export default function DashboardApp() {
           </Grid>
             */}
 
-          {/* <Grid item xs={12} md={6} lg={4}>
+        {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Current Visits"
               chartData={[
@@ -176,7 +199,7 @@ export default function DashboardApp() {
             />
           </Grid> */}
 
-          {/* 차트2
+        {/* 차트2
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
               title="Conversion Rates"

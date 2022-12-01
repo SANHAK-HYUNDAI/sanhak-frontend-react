@@ -25,7 +25,7 @@ export default function MediaCard() {
                     차체 진동/떨림_주행중<br />
                     도어 진동/떨림_주행중<br />
                     진동/떨림_주행중<br />
-                    <br /><br /><br />
+                    <br />
                 </Typography>
             </CardContent>
             <CardActions>
