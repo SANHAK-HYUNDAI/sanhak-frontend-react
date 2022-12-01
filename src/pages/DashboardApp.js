@@ -6,6 +6,20 @@ import { Grid, Container, Typography } from '@mui/material';
 import Page from '../components/Page';
 import Card1 from "./MainCard/Card1";
 import Card2 from "./MainCard/Card2";
+import Card3 from "./MainCard/Card3";
+import Card4 from "./MainCard/Card4";
+import Card5 from "./MainCard/Card5";
+import Card6 from "./MainCard/Card6";
+import Card7 from "./MainCard/Card7";
+import Card8 from "./MainCard/Card8";
+import Card9 from "./MainCard/Card9";
+import Card10 from "./MainCard/Card10";
+import Card11 from "./MainCard/Card11";
+import Card12 from "./MainCard/Card12";
+import Card13 from "./MainCard/Card13";
+import Card14 from "./MainCard/Card14";
+import Card15 from "./MainCard/Card15";
+
 import Iconify from '../components/Iconify';
 // sections
 import {
@@ -29,27 +43,59 @@ export default function DashboardApp() {
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Page explanation
+          Good Morning ! 
         </Typography>
+        <Typography variant="h6" sx={{ mb: 3 }}>
+          항목 선택 
+        </Typography>
+        
 
-        <Grid container spacing={3}>
-          <Grid item xs={4}>
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
               <Card1/>
           </Grid>
-          <Grid item xs={4}>
-              <Card1/>
-          </Grid>
-          <Grid item xs={4}>
-              <Card1/>
-          </Grid>
-          <Grid item xs={4}>
-              <Card1/>
-          </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={2}>
               <Card2/>
           </Grid>
-          <Grid item xs={4}>
-              <Card2/>
+          <Grid item xs={2}>
+              <Card3/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card4/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card5/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card6/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card7/>
+          </Grid>
+
+          <Grid item xs={2}>
+              <Card8/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card9/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card10/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card11/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card12/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card13/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card14/>
+          </Grid>
+          <Grid item xs={2}>
+              <Card15/>
           </Grid>
         </Grid>
 
