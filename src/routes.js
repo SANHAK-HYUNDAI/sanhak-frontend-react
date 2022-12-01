@@ -3,12 +3,12 @@ import { Navigate, useRoutes } from 'react-router-dom';
 import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
-import ROData from './pages/RoData';
-import User from './pages/SearchInfo';
+import RoData from './pages/RoData';
+import Search from './pages/SearchInfo';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
-import Products from './pages/Products';
+import Guide from './pages/Guide';
 import DashboardApp from './pages/DashboardApp';
 import NaverCafe from './pages/NaverCafe';
 
@@ -21,9 +21,9 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: 'app', element: <DashboardApp /> },
-        { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
-        { path: 'ROData', element: <ROData /> },
+        { path: 'Search', element: <Search /> },
+        { path: 'Guide', element: <Guide /> },
+        { path: 'RoData', element: <RoData /> },
         { path: 'NaverCafe', element: <NaverCafe /> }
       ],
     },

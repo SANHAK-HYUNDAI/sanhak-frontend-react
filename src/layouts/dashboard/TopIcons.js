@@ -3,7 +3,7 @@ import { useRef, useState } from 'react';
 import { IconButton } from '@mui/material';
 import OpenInNew from '@mui/icons-material/OpenInNew';
 // Icons
-import { Icon } from '@iconify/react';
+import Icon from '../../components/Iconify';
 // ----------------------------------------------------------------------
 
 
