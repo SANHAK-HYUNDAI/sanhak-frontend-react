@@ -4,7 +4,8 @@ import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import Card from "./Card";
+import Card1 from "./MainCard/Card1";
+import Card2 from "./MainCard/Card2";
 import Iconify from '../components/Iconify';
 // sections
 import {
@@ -33,22 +34,22 @@ export default function DashboardApp() {
 
         <Grid container spacing={3}>
           <Grid item xs={4}>
-              <Card/>
+              <Card1/>
           </Grid>
           <Grid item xs={4}>
-              <Card/>
+              <Card1/>
           </Grid>
           <Grid item xs={4}>
-              <Card/>
+              <Card1/>
           </Grid>
           <Grid item xs={4}>
-              <Card/>
+              <Card1/>
           </Grid>
           <Grid item xs={4}>
-              <Card/>
+              <Card2/>
           </Grid>
           <Grid item xs={4}>
-              <Card/>
+              <Card2/>
           </Grid>
         </Grid>
 

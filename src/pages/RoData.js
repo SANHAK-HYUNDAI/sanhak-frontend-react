@@ -1,87 +1,90 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Grid, Button, Container, Stack, Typography } from '@mui/material';
+import { Grid, Container, Stack, Typography } from '@mui/material';
+import * as React from 'react';
+
 // components
 import Page from '../components/Page';
-import Iconify from '../components/Iconify';
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../sections/@dashboard/blog';
-// mock
-import POSTS from '../_mock/blog';
+
 import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
+AppTasks,
+AppNewsUpdate,
+AppOrderTimeline,
+AppCurrentVisits,
+AppWebsiteVisits,
+AppTrafficBySite,
+AppWidgetSummary,
+AppCurrentSubject,
+AppConversionRates,
+FolderList,
 } from '../sections/@dashboard/app';
 import wordcloud from '../images/wordcloud.PNG';
 // ----------------------------------------------------------------------
 
-const SORT_OPTIONS = [
-  { value: 'latest', label: 'Latest' },
-  { value: 'popular', label: 'Popular' },
-  { value: 'oldest', label: 'Oldest' },
+const BigCategoryItem =[
+  { label: '도어 개폐불량', value: 1 },
+  { label: '기밀 불량', value: 2 },
+  { label: '냄새 과다', value: 3 },
+  { label: '부품 도장', value: 4 },
+  { label: '기타', value: 5 },
+  { label: '진동', value: 15 },
+  { label: '녹 발생', value: 19 },
+  { label: '경고등 점등', value: 101 },
+  { label: '사용/위치 불편', value: 132 },
+  { label: '조립 문제', value: 134 },
+  { label: '작동 불량', value: 367 },
+  { label: '부품 외관', value: 1388 },
+  { label: '소음/이음', value: 1682 },
+  { label: '시트 작동 소음/이음', value: 2138 },
+  { label: '시트 작동불량/시트벨트_작동불량', value: 2505 },
+];
+
+const SubCategoryItem = [
+  { id: 1, subcategory: "시트 작동불량_각도조절/폴딩시", probability : "32.97%" },
+  { id: 2, subcategory: "시트 작동불량_전후진", probability : "20.92%" },
+  { id: 3, subcategory: "시트 작동불량_냉방/통풍 조절", probability : "19.16%" },
+  { id: 4, subcategory: "시트 작동불량_암레스트", probability : "10.96%" },
+  { id: 5, subcategory: "시트 작동불량_허리지지대", probability : "9.58%" },
+  { id: 6, subcategory: "시트 작동불량_난방/열선 조절", probability : "8.18%" },
+  { id: 7, subcategory: "시트 작동불량_높낮이", probability : "5.47%" },
+  { id: 8, subcategory: "시트 작동불량_메모리시트", probability : "2.48%" },
+  { id: 9, subcategory: "시트 작동불량_높낮이 작동불량", probability : "0.16%" },
 ];
 
 // ----------------------------------------------------------------------
 
 export default function Blog() {
-  return (
-    <Page title="Dashboard: Blog">
-      <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Ro data
-          </Typography>
-          {/*
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
-          </Button>
-          */}
-        </Stack>
-        <Grid container spacing={2}>
-          <img src={wordcloud} alt="wordcloud" width="400" height="350" />
-        </Grid>
-        <Grid container spacing={2}>
-          <Grid item xs={15} md={8} lg={8}>
-            <AppConversionRates
-              title="Big Categories with high frequency"
-              subheader="(+43%) than last month"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-                { label: 'United Kingdom', value: 1380 },
-                { label: 'United Kingdom', value: 1380 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
-            />
-          </Grid>
-        </Grid>
-        {/*
-        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch posts={POSTS} />
-          <BlogPostsSort options={SORT_OPTIONS} />
-        </Stack>
+return (
+<Page title="Dashboard: Blog">
+<Container>
+  <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+    <Typography variant="h4" gutterBottom>
+      Ro data
+    </Typography>
+  </Stack>
 
-        <Grid container spacing={3}>
-          {POSTS.map((post, index) => (
-            <BlogPostCard key={post.id} post={post} index={index} />
-          ))}
-        </Grid>
-          */}
-      </Container>
-    </Page>
-  );
+  <Grid container spacing={0}>
+    <Grid item xs={15} md={8} lg={8}>
+      <img src={wordcloud} alt="wordcloud" width="800" height="650" />
+      </Grid>
+
+      <Grid item xs={15} md={6} lg={4}>
+      <img src={wordcloud} alt="wordcloud" width="300" height="250" />
+      </Grid>
+  </Grid>
+
+  <Grid container spacing={2}>
+    <Grid item xs={15} md={8} lg={8}>
+      <AppConversionRates
+        title="Big Categories" chartData = {BigCategoryItem}
+      />
+    </Grid>
+    
+    <Grid item xs={15} md={6} lg={4}>
+      <FolderList title="Sub Categories" list = {SubCategoryItem}/>
+    </Grid>
+
+  </Grid>
+</Container>
+</Page>
+);
 }
