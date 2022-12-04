@@ -9,7 +9,11 @@ export default function FolderList({title, list}) {
     return (
         <Card>
           <CardHeader title={title}/>
+<<<<<<< Updated upstream
            {/* <ReactWordcloud words={words} /> */}
+=======
+            {/* <ReactWordcloud words={words} /> */}
+>>>>>>> Stashed changes
         </Card>
       );
     }

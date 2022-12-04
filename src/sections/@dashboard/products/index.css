@@ -1,0 +1,12 @@
+/* guide index.css */
+.container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.container img {
+    margin: 5px;
+    width: 40px;
+    height: 40px;
+}
