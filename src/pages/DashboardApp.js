@@ -6,6 +6,20 @@ import { Grid, Container, Typography } from '@mui/material';
 import Page from '../components/Page';
 import Card1 from "./MainCard/Card1";
 import Card2 from "./MainCard/Card2";
+import Card3 from "./MainCard/Card3";
+import Card4 from "./MainCard/Card4";
+import Card5 from "./MainCard/Card5";
+import Card6 from "./MainCard/Card6";
+import Card7 from "./MainCard/Card7";
+import Card8 from "./MainCard/Card8";
+import Card9 from "./MainCard/Card9";
+import Card10 from "./MainCard/Card10";
+import Card11 from "./MainCard/Card11";
+import Card12 from "./MainCard/Card12";
+import Card13 from "./MainCard/Card13";
+import Card14 from "./MainCard/Card14";
+import Card15 from "./MainCard/Card15";
+
 import Iconify from '../components/Iconify';
 // sections
 import {
@@ -29,31 +43,86 @@ export default function DashboardApp() {
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Page explanation
+          Good Morning !
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 3 }}>
+          항목 선택<br />
+          <hr
+            style={{
+              position: 'absolute',
+              width: '82.91px',
+              height: '0px',
+              border: '1px solid #BCBCBC',
+            }}
+          />
+
         </Typography>
 
-        <Grid container spacing={3}>
-          <Grid item xs={4}>
-              <Card1/>
+        <Grid container spacing={1}>
+          { /* 부품 외관  */}
+          <Grid item xs={1.6}>
+            <Card1 />
           </Grid>
-          <Grid item xs={4}>
-              <Card1/>
+          { /* 시트 작동  */}
+          <Grid item xs={1.6}>
+            <Card2 />
           </Grid>
-          <Grid item xs={4}>
-              <Card1/>
+          { /* 시트 소음  */}
+          <Grid item xs={1.6}>
+            <Card3 />
           </Grid>
-          <Grid item xs={4}>
-              <Card1/>
+          { /* 작동 불량  */}
+          <Grid item xs={1.6}>
+            <Card4 />
           </Grid>
-          <Grid item xs={4}>
-              <Card2/>
+          { /* 소음/이음  */}
+          <Grid item xs={1.6}>
+            <Card5 />
           </Grid>
-          <Grid item xs={4}>
-              <Card2/>
+          { /* 냄새 과다  */}
+          <Grid item xs={1.6}>
+            <Card6 />
+          </Grid>
+          { /* 조립 문제  */}
+          <Grid item xs={1.6}>
+            <Card7 />
+          </Grid>
+          { /* 도어 개폐  */}
+          <Grid item xs={1.5}>
+            <Card8 />
+          </Grid>
+          { /* 기밀 불량  */}
+          <Grid item xs={1.5}>
+            <Card9 />
+          </Grid>
+          { /* 사용/위치  */}
+          <Grid item xs={1.5}>
+            <Card10 />
+          </Grid>
+          { /* 진동  */}
+          <Grid item xs={1.5}>
+            <Card15 />
+          </Grid>
+          { /* 기타  */}
+          <Grid item xs={1.5}>
+            <Card13 />
+          </Grid>
+          { /* 부품 도장  */}
+          <Grid item sm={1.3}>
+            <Card11 />
+          </Grid>
+          { /* 경고등  */}
+          <Grid item sm={1.2}>
+            <Card14 />
+          </Grid>
+          { /* 녹 발생  */}
+          <Grid item sm={1.2}>
+            <Card12 />
           </Grid>
         </Grid>
 
-          {/*
+
+        {/*
           <Grid item xs={12} sm={6} md={3}>
             <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
           </Grid>
@@ -70,7 +139,7 @@ export default function DashboardApp() {
             <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
           </Grid> */}
 
-          {/* 차트
+        {/* 차트
           <Grid item xs={12} md={6} lg={8}>
             <AppWebsiteVisits
               title="Website Visits"
@@ -112,7 +181,7 @@ export default function DashboardApp() {
           </Grid>
             */}
 
-          {/* <Grid item xs={12} md={6} lg={4}>
+        {/* <Grid item xs={12} md={6} lg={4}>
             <AppCurrentVisits
               title="Current Visits"
               chartData={[
@@ -130,7 +199,7 @@ export default function DashboardApp() {
             />
           </Grid> */}
 
-          {/* 차트2
+        {/* 차트2
           <Grid item xs={12} md={6} lg={8}>
             <AppConversionRates
               title="Conversion Rates"
