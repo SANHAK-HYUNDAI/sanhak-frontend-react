@@ -9,7 +9,7 @@ import sheet from '../../images/Dashboard images/도어개폐.JPG'
 
 export default function MediaCard() {
     return (
-        <Card sx={{ maxWidth: 190 }}>
+        <Card sx={{ maxWidth: 300}}>
             <CardMedia
                 component="img"
                 height="140"

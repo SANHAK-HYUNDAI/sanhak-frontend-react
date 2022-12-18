@@ -9,7 +9,7 @@ import sheet from '../../images/Dashboard images/진동.JPG'
 
 export default function MediaCard() {
     return (
-        <Card sx={{ maxWidth: 200 }}>
+        <Card sx={{ maxWidth: 300}}>
             <CardMedia
                 component="img"
                 height="140"
