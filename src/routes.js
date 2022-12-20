@@ -26,7 +26,7 @@ export default function Router() {
         { path: 'Guide', element: <Guide /> },
         { path: 'RoData', element: <RoData /> },
         { path: 'NaverCafe', element: <NaverCafe /> },
-        { path : 'LearnMore', element:<LearnMore />}
+        { path: '/dashboard/app/LearnMore', element: <LearnMore /> },
       ],
     },
     {
@@ -41,7 +41,8 @@ export default function Router() {
       path: '/',
       element: <LogoOnlyLayout />,
       children: [
-        { path: '/', element: <Navigate to="/dashboard/app" /> },
+       // { path: '/', element: <Navigate to="/dashboard/app" /> }, 임시 런모어 작업 중 
+        { path: '/', element: <Navigate to="/dashboard/app/LearnMore" /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],

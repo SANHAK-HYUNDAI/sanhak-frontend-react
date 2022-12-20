@@ -1,4 +1,13 @@
-import { Link, Route, BrowserRouter as Router } from "react-router-dom";
+// import { Link,useNavigate, Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  Link,
+  useNavigate,
+  BrowserRouter,
+} from 'react-router-dom';
+
+// import {Switch} from 'react-router-dom';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -20,7 +29,7 @@ import Card12 from "./MainCard/Card12";
 import Card13 from "./MainCard/Card13";
 import Card14 from "./MainCard/Card14";
 import Card15 from "./MainCard/Card15";
-import Learn from "./LearnMore";
+import LearnMore from "./LearnMore";
 
 import Iconify from '../components/Iconify';
 // sections
@@ -40,7 +49,12 @@ import {
 
 export default function DashboardApp() {
   const theme = useTheme();
-
+  const navigate = useNavigate();
+ 
+  const navigateToLearnmore = () => {
+    navigate("./learnmore");
+  };
+ 
   return (
     <Page title="Dashboard">
       <Container maxWidth="xl">
@@ -60,14 +74,11 @@ export default function DashboardApp() {
 
         </Typography>
        
- 
-
-  <Link to="./LearnMore"> 
-           
-            <button>런모어페이징</button>
-            
-</Link>
-
+      <Link to ="./LearnMore">
+        <button>런모어페이징</button>
+      </Link>
+   
+   
 
         <Grid container spacing={1}>
           { /* 부품 외관  */}

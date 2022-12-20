@@ -10,8 +10,8 @@ import Paper from '@mui/material/Paper';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
-    color: theme.palette.common.white,
+    backgroundColor: theme.palette.common.red,
+    color: theme.palette.common.black,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
@@ -33,11 +33,22 @@ function createData(name, calories, fat, carbs, protein) {
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData('Eclair', 262, 16.0, 24, 6.0),
-  createData('Cupcake', 305, 3.7, 67, 4.3),
-  createData('Gingerbread', 356, 16.0, 49, 3.9),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
 ];
 
 export default function CustomizedTables() {
@@ -46,11 +57,9 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>차종</StyledTableCell>
-            <StyledTableCell align="right">★품번</StyledTableCell>
-            <StyledTableCell align="right">원인부품&nbsp;</StyledTableCell>
-            <StyledTableCell align="right">현상&nbsp;</StyledTableCell>
-            <StyledTableCell align="right">특이사항&nbsp;</StyledTableCell>
+            <StyledTableCell>카페이름</StyledTableCell>
+            <StyledTableCell align="right">제목</StyledTableCell>
+            <StyledTableCell align="right">키워드&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -62,7 +71,6 @@ export default function CustomizedTables() {
               <StyledTableCell align="right">{row.calories}</StyledTableCell>
               <StyledTableCell align="right">{row.fat}</StyledTableCell>
               <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
