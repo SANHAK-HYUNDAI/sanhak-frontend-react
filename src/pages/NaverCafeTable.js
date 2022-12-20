@@ -1,4 +1,3 @@
-// LearnMore 내 네이버 카페 테이블
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -12,7 +11,7 @@ import Paper from '@mui/material/Paper';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
    // backgroundColor: theme.palette.common.white,
-    backgroundColor:theme.palette.common.white,
+    backgroundColor: '#40c057',
     color: theme.palette.common.black,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -39,7 +38,19 @@ const rows = [
   createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
   createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
   createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-]
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
+];
 
 export default function CustomizedTables() {
   return (

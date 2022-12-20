@@ -2,12 +2,9 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { spacing } from '@mui/system';
-import { Link } from 'react-router-dom';
-
-import * as React from 'react';
+import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
-  Grid,
   Card,
   Table,
   Stack,
@@ -22,24 +19,10 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-  FolderList,
-  } from '../sections/@dashboard/app';
-
 // components
 import Check from './Check';
 import Page from '../components/Page';
 import ExTable from './ExTable';
-import NaverCafeTable from './NaverCafeTable';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import Iconify from '../components/Iconify';
@@ -94,7 +77,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function LearnMore() {
+export default function User() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -161,25 +144,22 @@ export default function LearnMore() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            # 시트작동
+            After LearnMore
           </Typography>
-          <Link to ="./LearnMore/information">
-            <button>After_learnMore 구현중</button>
-          </Link>
-   
-          
           {/*
           <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
             New User
           </Button>
           */}
         </Stack>
+
         <Card>
+          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+
           <Scrollbar>
             <TableContainer sx={{ minWidth: 700 }}>
-           
-            <h2 >Naver Cafe Data</h2>
-            <NaverCafeTable/>
+            <Check sx={{ m: 3 }}/>
+            <ExTable/>
             </TableContainer>
           </Scrollbar>
   
@@ -257,7 +237,7 @@ export default function LearnMore() {
 
           
           <TablePagination
-            rowsPerPageOptions={[5, 20, 25]}
+            rowsPerPageOptions={[5, 10, 25]}
             component="div"
             count={USERLIST.length}
             rowsPerPage={rowsPerPage}
