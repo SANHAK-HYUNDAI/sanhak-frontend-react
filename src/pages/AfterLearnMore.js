@@ -18,10 +18,12 @@ import {
   Typography,
   TableContainer,
   TablePagination,
+  InputAdornment,
 } from '@mui/material';
 // components
 import Check from './Check';
 import Page from '../components/Page';
+import NaverCafeTable from './NaverCafeTable';
 import ExTable from './ExTable';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
@@ -30,6 +32,7 @@ import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
+import NaverCafe from './NaverCafe';
 
 // ----------------------------------------------------------------------
 
@@ -77,7 +80,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function User() {
+export default function AfterLearnMore() {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -144,7 +147,7 @@ export default function User() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            After LearnMore
+            After Learn More
           </Typography>
           {/*
           <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
@@ -153,12 +156,46 @@ export default function User() {
           */}
         </Stack>
 
-        <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+        <Card sx={3}>
+            <TableContainer sx={{ minWidth: 700 }}>  
+              <NaverCafeTable />
+            </TableContainer>
+        </Card>
+      </Container>
 
+      <Container>
+        <Card>
           <Scrollbar>
+          
+          <InputAdornment position="absolute">
+              <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 20, height: 20 }} />
+          </InputAdornment>
+
             <TableContainer sx={{ minWidth: 700 }}>
-            <Check sx={{ m: 3 }}/>
+            <h4>광주에 서식하면서 여행차 경주에 와 있습니다 
+              맛집도 많고 보문호 풍광도 좋아서 만족중입니다 
+              공기도 참 깨끗하네요 아니고언제 나올지 어떻게 
+              만들어질지 모르지만제가 계약한 옵션 중에 프리미엄
+              패키지이지도어가 있는데요 궁금한 점은 뒷좌석를 선택하지 
+              않았으므로 당연히뒷좌석 만 적용받을텐데 이렇게 되면 
+              좌석이 어느 눕혀지면서 레그레스트가 올라오고 뒷좌석가 
+              없으므로 조수석 등받이에 발을 대야하는 형편이맞는거죠를 
+              안해놓고 쇼품에서는 풀옵만 타봤으니  뻘짓만 한것은 아닌지 
+              궁금한 점을 정리하자면 발 올릴 곳 없으니 올리려면 조수석 
+              등받이에 대는 거 그나마 원터치로 이루어지는지 궁금하네요미처 
+              생각못한 부분이고 제가 아무리봐도 정확히 파악을 없어서 질문으로
+              올립니다햐이거 옵션 추가하여 계약을 변경해야는지 갑자기 심난한 
+              밤입니다요 심난하지는 않고뭐 그렇다고요</h4>
+            </TableContainer>
+          </Scrollbar>
+        </Card>
+      </Container>
+
+      <Container>
+        <Card>
+          <Scrollbar>
+            <TableContainer sx={{ minWidth: 500 }}>
+           
             <ExTable/>
             </TableContainer>
           </Scrollbar>
@@ -233,8 +270,6 @@ export default function User() {
                 )}
               </Table>
               */}
-
-
           
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
@@ -245,7 +280,6 @@ export default function User() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-          
         </Card>
       </Container>
     </Page>

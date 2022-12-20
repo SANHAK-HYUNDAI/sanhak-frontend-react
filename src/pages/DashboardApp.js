@@ -29,7 +29,6 @@ import Card12 from "./MainCard/Card12";
 import Card13 from "./MainCard/Card13";
 import Card14 from "./MainCard/Card14";
 import Card15 from "./MainCard/Card15";
-import LearnMore from "./LearnMore";
 
 import Iconify from '../components/Iconify';
 // sections
@@ -49,11 +48,7 @@ import {
 
 export default function DashboardApp() {
   const theme = useTheme();
-  const navigate = useNavigate();
  
-  const navigateToLearnmore = () => {
-    navigate("./learnmore");
-  };
  
   return (
     <Page title="Dashboard">
@@ -73,11 +68,6 @@ export default function DashboardApp() {
           />
 
         </Typography>
-       
-      <Link to ="./LearnMore">
-        <button>런모어페이징</button>
-      </Link>
-   
    
 
         <Grid container spacing={1}>

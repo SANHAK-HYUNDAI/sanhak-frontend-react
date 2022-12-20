@@ -35,21 +35,6 @@ function createData(name, calories, fat, carbs, protein) {
 
 const rows = [
   createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', 'sandwich', 237 ),
 ];
 
 export default function CustomizedTables() {

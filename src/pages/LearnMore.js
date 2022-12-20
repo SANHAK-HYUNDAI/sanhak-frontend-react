@@ -59,9 +59,7 @@ const TABLE_HEAD = [
   { id: '' },
 ];
 
-const exstyle = `
-padding: 10px 10px;`;
-
+const exstyle = `padding: 10px 10px;`;
 
 // ----------------------------------------------------------------------
 
@@ -163,21 +161,19 @@ export default function LearnMore() {
           <Typography variant="h4" gutterBottom>
             # 시트작동
           </Typography>
-          <Link to ="./LearnMore/information">
-            <button>After_learnMore 구현중</button>
-          </Link>
-   
-          
-          {/*
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
+          <Button variant="contained" component={Link} to="./LearnMore/information" style={{backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
+            After_learnMore
           </Button>
-          */}
+   
+          {
+          <Button variant="contained" component={Link} to="#" style={{backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
+            total 256 data
+          </Button>
+          }
         </Stack>
         <Card>
           <Scrollbar>
-            <TableContainer sx={{ minWidth: 700 }}>
-           
+            <TableContainer sx={{ minWidth: 700}} gutterBottom>
             <h2 >Naver Cafe Data</h2>
             <NaverCafeTable/>
             </TableContainer>
