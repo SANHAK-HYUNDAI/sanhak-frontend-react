@@ -23,10 +23,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.action.hover,
   },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-    border: 0,
-  },
+  
 }));
 
 function createData(name, calories, fat, carbs, protein) {
@@ -43,9 +40,9 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>카페이름</StyledTableCell>
-            <StyledTableCell align="right">제목</StyledTableCell>
-            <StyledTableCell align="right">키워드&nbsp;</StyledTableCell>
+            <StyledTableCell align="center">카페이름</StyledTableCell>
+            <StyledTableCell align="center">제목</StyledTableCell>
+            <StyledTableCell align="center">키워드&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -54,9 +51,9 @@ export default function CustomizedTables() {
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
+              <StyledTableCell align="center">{row.calories}</StyledTableCell>
+              <StyledTableCell align="center">{row.fat}</StyledTableCell>
+              <StyledTableCell align="center">{row.carbs}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

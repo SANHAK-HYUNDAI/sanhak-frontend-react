@@ -47,9 +47,9 @@ export default function CustomizedTables() {
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
-            <StyledTableCell>카페이름</StyledTableCell>
-            <StyledTableCell align="right">제목</StyledTableCell>
-            <StyledTableCell align="right">키워드&nbsp;</StyledTableCell>
+            <StyledTableCell align="center">카페이름</StyledTableCell>
+            <StyledTableCell align="center">제목</StyledTableCell>
+            <StyledTableCell align="center">키워드&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
