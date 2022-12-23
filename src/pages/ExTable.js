@@ -1,4 +1,3 @@
-// LearnMore 내 네이버 카페 테이블
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';

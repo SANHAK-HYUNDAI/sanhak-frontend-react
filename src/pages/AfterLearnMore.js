@@ -164,20 +164,16 @@ export default function AfterLearnMore() {
       </Container>
 
       <Container>
-        <Card spacing={2}>
+        <Card sx={3}>
           <Scrollbar>
-         
-          <InputAdornment position="absolute">
-              <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 30, height: 30 }} />
-              <h4 style={{color : "#6E6E6E"}}>content</h4>
-              
-          </InputAdornment>
-          
-
             <TableContainer sx={{ minWidth: 700 , minHeight: 200 , justifyContent:'center'}}>
-            <hr style={{width : 70, color: '#BCBCBC' }}/>
-              <button style={{ textAlign:'center', alignSelf : 'center', justifyContent:'center' }}>
-                <buttonText style={{ font: "Alef", alignSelf : 'center', display: 'flex', fontWeight: 400 }}>광주에 서식하면서 여행차 경주에 와 있습니다 
+              <Container style={{ font: "Alef", alignSelf : 'center', display: 'flex', fontWeight: 400 }}>
+              <InputAdornment position="absolute">
+              <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 30, height: 30 }} />
+              <h4 style={{color : "#6E6E6E", display:'center'}}>content</h4>   
+              <hr style={{width : 70, color: '#BCBCBC' }}/>
+              </InputAdornment>
+              광주에 서식하면서 여행차 경주에 와 있습니다 
               맛집도 많고 보문호 풍광도 좋아서 만족중입니다 
               공기도 참 깨끗하네요 아니고언제 나올지 어떻게 
               만들어질지 모르지만제가 계약한 옵션 중에 프리미엄
@@ -190,7 +186,7 @@ export default function AfterLearnMore() {
               등받이에 대는 거 그나마 원터치로 이루어지는지 궁금하네요미처 
               생각못한 부분이고 제가 아무리봐도 정확히 파악을 없어서 질문으로
               올립니다햐이거 옵션 추가하여 계약을 변경해야는지 갑자기 심난한 
-              밤입니다요 심난하지는 않고뭐 그렇다고요</buttonText></button>
+              밤입니다요 심난하지는 않고뭐 그렇다고요</Container>
             </TableContainer>
           </Scrollbar>
         </Card>
@@ -200,7 +196,6 @@ export default function AfterLearnMore() {
         <Card>
           <Scrollbar>
             <TableContainer sx={{ minWidth: 500 , minHeight: 200 }}>
-           
             <ExTable/>
             </TableContainer>
           </Scrollbar>

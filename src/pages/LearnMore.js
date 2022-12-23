@@ -173,10 +173,10 @@ export default function LearnMore() {
         </Stack>
         <Card>
           <Scrollbar>
-            <TableContainer sx={{ minWidth: 700}} gutterBottom>
-            <h2 >Naver Cafe Data</h2>
+          <h2 >Naver Cafe Data</h2>
+          <TableContainer sx={{ minWidth: 700}} gutterBottom>
             <NaverCafeTable/>
-            </TableContainer>
+          </TableContainer>
           </Scrollbar>
   
 
