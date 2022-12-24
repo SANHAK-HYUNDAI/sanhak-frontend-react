@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import * as React from 'react';
 // material
 import {
+  Paper,
   Grid,
   Card,
   Table,
@@ -22,6 +23,7 @@ import {
   TableContainer,
   TablePagination,
 } from '@mui/material';
+import { styled } from '@mui/material/styles';
 import {
   AppTasks,
   AppNewsUpdate,
@@ -154,33 +156,61 @@ export default function LearnMore() {
 
   const isUserNotFound = filteredUsers.length === 0;
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    lineHeight: '30px',
+    
+  }));
+
   return (
     <Page title="User">
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            # 시트작동
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={7}>
+          <Typography variant="h3" gutterBottom >
+            #시트작동
           </Typography>
-          <Button variant="contained" component={Link} to="./LearnMore/information" style={{backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
-            After_learnMore
-          </Button>
-   
-          {
-          <Button variant="contained" component={Link} to="#" style={{backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
-            total 256 data
-          </Button>
-          }
         </Stack>
-        <Card>
-          <Scrollbar>
-          <h2 >Naver Cafe Data</h2>
-          <TableContainer sx={{ minWidth: 700}} gutterBottom>
-            <NaverCafeTable/>
-          </TableContainer>
-          </Scrollbar>
+
+        
+        <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
+        <Scrollbar>
+        <Grid item xs={20}> 
+        <Item elevation={4}>
+          <Typography variant="h3" gutterBottom style={{color:'#000000',marginTop:'10px',marginLeft:'10px'}}>
+            Naver Cafe Data
+            <Button variant="contained" style={{ marginLeft:'1030px',backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
+            total 256 data
+            </Button>
+          </Typography>
+          
+          <NaverCafeTable />
+          <TablePagination
+            rowsPerPageOptions={[5, 20, 25]}
+            component="div"
+            count={USERLIST.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Item>
+        </Grid>
+        </Scrollbar>
+        </Grid>
+        </Container>
+    </Page>
+  );
+}
+
+
+      
   
 
-              {/*
+              /*
               <Table>
                 <UserListHead
                   order={order}
@@ -248,22 +278,7 @@ export default function LearnMore() {
                   </TableBody>
                 )}
               </Table>
-              */}
+              */
 
 
-          
-          <TablePagination
-            rowsPerPageOptions={[5, 20, 25]}
-            component="div"
-            count={USERLIST.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-          
-        </Card>
-      </Container>
-    </Page>
-  );
-}
+ 

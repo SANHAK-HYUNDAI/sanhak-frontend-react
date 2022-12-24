@@ -19,12 +19,16 @@ import {
   TableContainer,
   TablePagination,
   InputAdornment,
+  Grid,
+  Paper,
 } from '@mui/material';
 // components
-import Check from './Check';
+import { styled } from '@mui/material/styles';
+import { ProductList, GuideGrid } from '../sections/@dashboard/products';
 import Page from '../components/Page';
 import NaverCafeTable from './NaverCafeTable';
 import ExTable from './ExTable';
+import SelectedTable from './SelectedTable';
 import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
 import Iconify from '../components/Iconify';
@@ -142,38 +146,36 @@ export default function AfterLearnMore() {
 
   const isUserNotFound = filteredUsers.length === 0;
 
+  const Item = styled(Paper)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    ...theme.typography.body2,
+    padding: theme.spacing(1),
+    textAlign: 'left',
+    color: theme.palette.text.secondary,
+    lineHeight: '30px',
+    
+  }));
+
   return (
     <Page title="User">
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            After Learn More
+        <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
+        <Grid item xs={20}>
+        <Item elevation={4}>
+          <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
+            Naver Cafe Data
           </Typography>
-          {/*
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
-          </Button>
-          */}
-        </Stack>
+          <SelectedTable />
+        </Item>
+        </Grid>
 
-        <Card sx={3}>
-            <TableContainer sx={{ minWidth: 700 , minHeight: 200 }} gutterBottom>  
-              <NaverCafeTable />
-            </TableContainer>
-        </Card>
-      </Container>
-
-      <Container>
-        <Card sx={3}>
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 700 , minHeight: 200 , justifyContent:'center'}}>
-              <Container style={{ font: "Alef", alignSelf : 'center', display: 'flex', fontWeight: 400 }}>
-              <InputAdornment position="absolute">
-              <Iconify icon="eva:search-fill" sx={{ color: 'text.disabled', width: 30, height: 30 }} />
-              <h4 style={{color : "#6E6E6E", display:'center'}}>content</h4>   
-              <hr style={{width : 70, color: '#BCBCBC' }}/>
-              </InputAdornment>
-              광주에 서식하면서 여행차 경주에 와 있습니다 
+      {/* 6이 절반 넓이 */}
+      <Grid item xs={20}> 
+        <Item elevation={4}>
+            <h4 style={{color : "#6E6E6E" , marginLeft:'20px', marginTop:'20px'}}>content</h4>   
+            <hr style={{width : 60, color: '#BCBCBC' , marginLeft:'20px', marginBottom:'20px'}}/>
+            <div style={{color:'#000000', letterSpacing:'0.01em', margin:'20px'}}>
+          광주에 서식하면서 여행차 경주에 와 있습니다 
               맛집도 많고 보문호 풍광도 좋아서 만족중입니다 
               공기도 참 깨끗하네요 아니고언제 나올지 어떻게 
               만들어질지 모르지만제가 계약한 옵션 중에 프리미엄
@@ -186,22 +188,34 @@ export default function AfterLearnMore() {
               등받이에 대는 거 그나마 원터치로 이루어지는지 궁금하네요미처 
               생각못한 부분이고 제가 아무리봐도 정확히 파악을 없어서 질문으로
               올립니다햐이거 옵션 추가하여 계약을 변경해야는지 갑자기 심난한 
-              밤입니다요 심난하지는 않고뭐 그렇다고요</Container>
-            </TableContainer>
-          </Scrollbar>
-        </Card>
-      </Container>
+              밤입니다요 심난하지는 않고뭐 그렇다고요
+              </div>
+        </Item>
+      </Grid>
+      
+      <Grid item xs={20}>
+        <Item elevation={4}>
+        <Typography variant="h4" gutterBottom style={{color:'#000000', margin:'20px', marginLeft:'10px'}}>Ro Data</Typography>
+        <ExTable/>
+        <TablePagination
+            rowsPerPageOptions={[5, 10, 25]}
+            component="div"
+            count={USERLIST.length}
+            rowsPerPage={rowsPerPage}
+            page={page}
+            onPageChange={handleChangePage}
+            onRowsPerPageChange={handleChangeRowsPerPage}
+          />
+        </Item>
+      </Grid>
+    </Grid>
+    </Container>
+    </Page>
+  );
+}
 
-      <Container>
-        <Card>
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 500 , minHeight: 200 }}>
-            <ExTable/>
-            </TableContainer>
-          </Scrollbar>
-  
 
-              {/*
+             /* {/*
               <Table>
                 <UserListHead
                   order={order}
@@ -269,19 +283,5 @@ export default function AfterLearnMore() {
                   </TableBody>
                 )}
               </Table>
-              */}
-          
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={USERLIST.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-        </Card>
-      </Container>
-    </Page>
-  );
-}
+              */
+   
