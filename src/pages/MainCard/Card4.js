@@ -28,6 +28,7 @@ export default function MediaCard() {
                     작동안됨<br />
                     작동이 원활하지 않음(무거움)<br />
                     <br />
+                    <br />
                 </Typography>
             </CardContent>
             <CardActions>

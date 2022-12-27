@@ -173,8 +173,9 @@ export default function LearnMore() {
           <Typography variant="h3" gutterBottom >
             #시트작동
           </Typography>
-        </Stack>
+          <Button size="small" component={Link} to="./LearnMore/information">Cell 클릭시 이동할 페이지</Button>
 
+        </Stack>
         
         <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
         <Scrollbar>
