@@ -1,4 +1,5 @@
 import * as React from 'react';
+import {Link} from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -9,7 +10,7 @@ import sheet from '../../images/Dashboard images/작동불량.JPG'
 
 export default function MediaCard() {
     return (
-        <Card sx={{ maxWidth: 190 }}>
+        <Card sx={{ maxWidth: 300}}>
             <CardMedia
                 component="img"
                 height="140"
@@ -27,10 +28,11 @@ export default function MediaCard() {
                     작동안됨<br />
                     작동이 원활하지 않음(무거움)<br />
                     <br />
+                    <br />
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+            <Button size="small" component={Link} to="./LearnMore">Learn More</Button>
             </CardActions>
         </Card>
     );

@@ -1,3 +1,13 @@
+// import { Link,useNavigate, Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import {
+  Switch,
+  Route,
+  Link,
+  useNavigate,
+  BrowserRouter,
+} from 'react-router-dom';
+
+// import {Switch} from 'react-router-dom';
 import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
@@ -38,7 +48,8 @@ import {
 
 export default function DashboardApp() {
   const theme = useTheme();
-
+ 
+ 
   return (
     <Page title="Dashboard">
       <Container maxWidth="xl">
@@ -57,66 +68,67 @@ export default function DashboardApp() {
           />
 
         </Typography>
+   
 
         <Grid container spacing={1}>
           { /* 부품 외관  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card1 />
           </Grid>
           { /* 시트 작동  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card2 />
           </Grid>
           { /* 시트 소음  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card3 />
           </Grid>
           { /* 작동 불량  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card4 />
           </Grid>
           { /* 소음/이음  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card5 />
           </Grid>
           { /* 냄새 과다  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card6 />
           </Grid>
           { /* 조립 문제  */}
-          <Grid item xs={1.6}>
+          <Grid item xs={3.0}>
             <Card7 />
           </Grid>
           { /* 도어 개폐  */}
-          <Grid item xs={1.5}>
+          <Grid item xs={3.0}>
             <Card8 />
           </Grid>
           { /* 기밀 불량  */}
-          <Grid item xs={1.5}>
+          <Grid item xs={3.0}>
             <Card9 />
           </Grid>
           { /* 사용/위치  */}
-          <Grid item xs={1.5}>
+          <Grid item xs={3.0}>
             <Card10 />
           </Grid>
           { /* 진동  */}
-          <Grid item xs={1.5}>
+          <Grid item xs={3.0}>
             <Card15 />
           </Grid>
           { /* 기타  */}
-          <Grid item xs={1.5}>
+          <Grid item xs={3.0}>
             <Card13 />
           </Grid>
           { /* 부품 도장  */}
-          <Grid item sm={1.3}>
+          <Grid item sm={3.0}>
             <Card11 />
           </Grid>
           { /* 경고등  */}
-          <Grid item sm={1.2}>
+          <Grid item sm={3.0}>
             <Card14 />
           </Grid>
           { /* 녹 발생  */}
-          <Grid item sm={1.2}>
+          <Grid item sm={3.0}>
             <Card12 />
           </Grid>
         </Grid>
