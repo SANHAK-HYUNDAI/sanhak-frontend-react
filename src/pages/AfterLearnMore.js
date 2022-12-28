@@ -5,7 +5,6 @@ import { spacing } from '@mui/system';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import {
-  Card,
   Table,
   Stack,
   Avatar,
@@ -149,7 +148,7 @@ export default function AfterLearnMore() {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(1),
+    padding: theme.spacing(2),
     textAlign: 'left',
     color: theme.palette.text.secondary,
     lineHeight: '30px',
@@ -159,14 +158,15 @@ export default function AfterLearnMore() {
   return (
     <Page title="User">
       <Container>
-        <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
-        <Grid item xs={20}>
+        <Grid container rowSpacing={5} columnSpacing={{ sm: 20, md: 10 }} >
+        <Grid item xs={20} style={{marginTop:'50px'}}>
         <Item elevation={4}>
           <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
             Naver Cafe Data
           </Typography>
           <SelectedTable />
         </Item>
+        
         </Grid>
 
       {/* 6이 절반 넓이 */}

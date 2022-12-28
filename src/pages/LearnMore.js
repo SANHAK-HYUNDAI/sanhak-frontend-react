@@ -162,8 +162,7 @@ export default function LearnMore() {
     padding: theme.spacing(1),
     textAlign: 'left',
     color: theme.palette.text.secondary,
-    lineHeight: '30px',
-    
+    lineHeight: '30px', 
   }));
 
   return (
@@ -173,7 +172,8 @@ export default function LearnMore() {
           <Typography variant="h3" gutterBottom >
             #시트작동
           </Typography>
-          <Button size="small" component={Link} to="./LearnMore/information">Cell 클릭시 이동할 페이지</Button>
+
+        <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
 
         </Stack>
         

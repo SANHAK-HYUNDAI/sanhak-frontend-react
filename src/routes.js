@@ -28,19 +28,7 @@ export default function Router() {
         { path: 'RoData', element: <RoData /> },
         { path: 'NaverCafe', element: <NaverCafe /> },
         { path: '/dashboard/app/LearnMore', element: <LearnMore /> },
-        { path : '/dashboard/app/LearnMore/information', element: <AfterLearnMore />},
       ],
-    },
-    {
-      path: '/dashboard/app/LearnMore',
-      element:<LearnMore />,
-      children:[
-        { path : '/dashboard/app/LearnMore/information', element: <AfterLearnMore />},
-      ]
-    },
-    {
-      path:'./information',
-      element:<Navigate to ='./dashboard/app/LearnMore/information' />,
     },
     {
       path: 'login',
@@ -57,6 +45,7 @@ export default function Router() {
         { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },
+        { path: '/LearnMore/information' , element: <AfterLearnMore /> },
       ],
     },
     {
