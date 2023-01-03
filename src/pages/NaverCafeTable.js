@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Link} from '@mui/material';
+import { Link } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -8,7 +8,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import shadows from '@mui/material/styles/shadows';
+import shadows from '@mui/material/styles/shadows';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.root}`]: {
@@ -16,11 +16,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     radius: '4px',
     '&$focusVisible': {
       backgroundColor: theme.palette.action.selected,
-     // boxshadow:theme.palette.action.selected,
+      boxshadow:theme.palette.action.selected,
     },
     '&$selected, &$selected:hover': {
       backgroundColor: theme.palette.action.selected,
-     // boxshadow:theme.palette.action.selected,
+      boxshadow:theme.palette.action.selected,
     },
     '&$disabled': {
       opacity: 0.5,
@@ -34,6 +34,17 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
     focusVisible: {},
+
+// 여기 작업 중 클릭할 시 새 창 띄워지며 이동해야 함 
+    '&:visited' : {
+      textDecoration: 'none',
+      color: theme.palette.common.black,
+  },
+  '&selected' : {
+    textDecoration: 'none',
+    color: theme.palette.common.black,
+    onClick : "location='./LearnMore/information'",
+  },
     '&:hover': {
     /*  transition: theme.transitions.create('backgroundcolor', {
         duration: theme.transitions.duration.shortest,
@@ -58,17 +69,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   
 }));
 
-function createData(cafe, title, keyword ) {
-  return { cafe, title, keyword };
+function createData(cafe,title,key1,key2,key3,key4,key5) {
+  return { cafe, title, key1, key2, key3, key4, key5};
 }
 
 const rows = [
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
+  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택', '좌석 선택', '좌석 좌석 적용', '좌석 경주 맛집', '선택 좌석 적용'),
+
 ];
 
 export default function CustomizedTables() {
@@ -84,11 +91,13 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
+
           {rows.map((row) => (
             <StyledTableRow key={row.cafe}>
-              <StyledTableCell component="th" scope="row">{row.cafe}</StyledTableCell>
+              <StyledTableCell scope="row" component="th">{row.cafe}</StyledTableCell>
               <StyledTableCell align="center">{row.title}</StyledTableCell>
-              <StyledTableCell align="center">{row.keyword}</StyledTableCell>
+              <StyledTableCell align="center">{row.key1},{row.key2},
+              {row.key3},{row.key4},{row.key5}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>
