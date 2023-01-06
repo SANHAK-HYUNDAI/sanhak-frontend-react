@@ -1,52 +1,25 @@
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
 import { useState } from 'react';
-import { spacing } from '@mui/system';
 import { Link } from 'react-router-dom';
 
 import * as React from 'react';
 // material
 import {
+  Card,
   Paper,
   Grid,
-  Card,
-  Table,
   Stack,
-  Avatar,
   Button,
-  Checkbox,
-  TableRow,
-  TableBody,
-  TableCell,
   Container,
   Typography,
-  TableContainer,
   TablePagination,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-  FolderList,
-  } from '../sections/@dashboard/app';
 
 // components
-import Check from './Check';
 import Page from '../components/Page';
-import ExTable from './ExTable';
 import NaverCafeTable from './NaverCafeTable';
-import Label from '../components/Label';
 import Scrollbar from '../components/Scrollbar';
-import Iconify from '../components/Iconify';
-import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashboard/user';
 // mock
 import USERLIST from '../_mock/user';
 
@@ -166,19 +139,19 @@ export default function LearnMore() {
   }));
 
   return (
-    <Page title="User">
+      <Page title="Dashboard: Learnmore">
       <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={7}>
-          <Typography variant="h3" gutterBottom >
-            #시트작동
+        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+          <Typography variant="h4" gutterBottom>
+            # 시트 작동
           </Typography>
-
+      
         <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
 
         </Stack>
-        
+        <Card>
         <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
-        <Scrollbar>
+   
         <Grid item xs={20}> 
         <Item elevation={4}>
           <Typography variant="h3" gutterBottom style={{color:'#000000',marginTop:'10px',marginLeft:'10px'}}>
@@ -200,86 +173,10 @@ export default function LearnMore() {
           />
         </Item>
         </Grid>
-        </Scrollbar>
+
         </Grid>
+        </Card>
         </Container>
     </Page>
   );
 }
-
-
-      
-  
-
-              /*
-              <Table>
-                <UserListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
-                  numSelected={selected.length}
-                  onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
-                />
-                <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
-
-                    return (
-                      <TableRow
-                        hover
-                        key={id}
-                        tabIndex={-1}
-                        role="checkbox"
-                        selected={isItemSelected}
-                        aria-checked={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
-                        </TableCell>
-                        <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={name} src={avatarUrl} />
-                            <Typography variant="subtitle2" noWrap>
-                              {name}
-                            </Typography>
-                          </Stack>
-                        </TableCell>
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        <TableCell align="left">
-                          <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                            {sentenceCase(status)}
-                          </Label>
-                        </TableCell>
-
-                        <TableCell align="right">
-                          <UserMoreMenu />
-                        </TableCell>
-                      </TableRow>
-                    );
-                  })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
-                </TableBody>
-
-                {isUserNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
-                        <SearchNotFound searchQuery={filterName} />
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
-              </Table>
-              */
-
-
- 

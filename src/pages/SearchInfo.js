@@ -68,7 +68,7 @@ export default function SearchInfo() {
 // ----------------------------------------------------------------------
 
 const [data, setData] = useState([]);
-  	
+  
   	useEffect(() => {
 		const fetchData = async() => {
           const res = await fetch('https://kw-dormitory.k-net.kr/api/ROs');
@@ -79,7 +79,8 @@ const [data, setData] = useState([]);
         fetchData().then(res => setData(res)); 
     }, []);
 
-  const USERLIST = data.values;
+
+  // const USERLIST = data.values;
 
   const [page, setPage] = useState(0);
 
@@ -153,6 +154,14 @@ const [data, setData] = useState([]);
 
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+          {/*
+          <Scrollbar>
+            <TableContainer sx={{ minWidth: 700 }}>
+            <Check sx={{ m: 3 }}/>
+            <ExTable/>
+            </TableContainer>
+          </Scrollbar>
+          */}
               
               <Table>
                 <UserListHead
@@ -189,7 +198,7 @@ const [data, setData] = useState([]);
                           </Stack>
                         </TableCell>
                         <TableCell variant="subtitle2" > {bigPhenom}</TableCell>
-                        <TableCell style={{width:'45%'}} align="left">{specialNote}</TableCell>
+                        <TableCell style={{width:'40%'}} align="left">{specialNote}</TableCell>
                         <TableCell align="left">{location}</TableCell>
                         <TableCell align="left">{problematic}</TableCell>
                         <TableCell align="left">{cause}</TableCell>
