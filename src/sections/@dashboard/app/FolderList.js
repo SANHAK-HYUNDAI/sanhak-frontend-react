@@ -5,10 +5,6 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 import { Card, CardHeader } from '@mui/material';
-
-import CheckIcon from '@mui/icons-material/Check';
-import DoneOutlineIcon from '@mui/icons-material/DoneOutline';
-import LibraryAddCheckIcon from '@mui/icons-material/LibraryAddCheck';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
 import { purple } from '@mui/material/colors';
 

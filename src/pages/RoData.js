@@ -16,6 +16,7 @@ AppWidgetSummary,
 AppCurrentSubject,
 AppConversionRates,
 FolderList,
+WordCloud
 } from '../sections/@dashboard/app';
 import wordcloud from '../images/wordcloud.PNG';
 // ----------------------------------------------------------------------
@@ -62,16 +63,16 @@ return (
     </Typography>
   </Stack>
 
-  <Grid container spacing={0}>
+  <Grid container spacing={2}>
     <Grid item xs={15} md={8} lg={8}>
-      <img src={wordcloud} alt="wordcloud" width="800" height="650" />
+      <WordCloud title = "WordCloud"/>
       </Grid>
 
       <Grid item xs={15} md={6} lg={4}>
       <img src={wordcloud} alt="wordcloud" width="300" height="250" />
       </Grid>
   </Grid>
-
+  
   <Grid container spacing={2}>
     <Grid item xs={15} md={8} lg={8}>
       <AppConversionRates
