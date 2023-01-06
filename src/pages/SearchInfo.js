@@ -153,14 +153,6 @@ const [data, setData] = useState([]);
 
         <Card>
           <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-          {/*
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 700 }}>
-            <Check sx={{ m: 3 }}/>
-            <ExTable/>
-            </TableContainer>
-          </Scrollbar>
-          */}
               
               <Table>
                 <UserListHead
