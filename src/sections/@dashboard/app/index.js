@@ -9,3 +9,4 @@ export { default as AppCurrentSubject } from './AppCurrentSubject';
 export { default as AppConversionRates } from './AppConversionRates';
 export { default as FolderList } from './FolderList';
 export { default as WordCloud } from './WordCloud';
+export { default as FolderList2 } from './FolderList2';
