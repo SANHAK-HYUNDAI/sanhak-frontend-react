@@ -5,25 +5,25 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 import { Card, CardHeader } from '@mui/material';
-import TaskAltIcon from '@mui/icons-material/TaskAlt';
-import { pink } from '@mui/material/colors';
+import { pink, } from '@mui/material/colors';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
-FolderList.propTypes = {
+FolderList2.propTypes = {
   title: PropTypes.string,
   list: PropTypes.array.isRequired,
 };
 
 
-export default function FolderList({title, list}) {
-  const ListItemTest = (list.map((sub) =>
-        <ListItem key={sub.id} value={sub.subcategory} >
+export default function FolderList2({title, list}) {
+
+  const ListItemTest = (list.map((keyword) =>
+        <ListItem key={keyword.index} >
           <ListItemAvatar>
-          <Avatar sx={{bgcolor : pink[100]}}>
-            <TaskAltIcon />
+          <Avatar sx={{bgcolor : pink[50]}}>
+            <ArrowRightIcon sx={{ fontSize: 30 }}/>
           </Avatar>
         </ListItemAvatar>
-          <ListItemText primaryTypographyProps={{fontSize: '12px'}} primary={sub.subcategory} 
-                        secondaryTypographyProps={{fontSize: '13px'}} secondary= {sub.probability}/>
+          <ListItemText primaryTypographyProps={{fontSize: '18px', fontStyle:"bolder"}} primary={keyword.word} />
         </ListItem>
         )
       );

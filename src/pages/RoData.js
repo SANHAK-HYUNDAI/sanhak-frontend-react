@@ -6,19 +6,12 @@ import * as React from 'react';
 import Page from '../components/Page';
 
 import {
-AppTasks,
-AppNewsUpdate,
-AppOrderTimeline,
-AppCurrentVisits,
-AppWebsiteVisits,
-AppTrafficBySite,
-AppWidgetSummary,
-AppCurrentSubject,
 AppConversionRates,
 FolderList,
-WordCloud
+WordCloud,
+FolderList2
 } from '../sections/@dashboard/app';
-import wordcloud from '../images/wordcloud.PNG';
+
 // ----------------------------------------------------------------------
 
 const BigCategoryItem =[
@@ -51,6 +44,14 @@ const SubCategoryItem = [
   { id: 9, subcategory: "시트 작동불량_높낮이 작동불량", probability : "0.16%" },
 ];
 
+const KeyWordList = [
+  { index: 1, word : "시트" },
+  { index: 2, word : "소음" },
+  { index: 3, word : "운전" },
+  { index: 4, word : "발생" },
+  { index: 5, word : "교환" },
+];
+
 // ----------------------------------------------------------------------
 
 export default function Blog() {
@@ -64,12 +65,12 @@ return (
   </Stack>
 
   <Grid container spacing={2}>
-    <Grid item xs={15} md={8} lg={8}>
+    <Grid item xs={10} md={8} lg={8}>
       <WordCloud title = "WordCloud"/>
       </Grid>
 
-      <Grid item xs={15} md={6} lg={4}>
-      <img src={wordcloud} alt="wordcloud" width="300" height="250" />
+      <Grid item xs={10} md={6} lg={4}>
+        <FolderList2 title = "Top Keywords" list = {KeyWordList}/>
       </Grid>
   </Grid>
   
