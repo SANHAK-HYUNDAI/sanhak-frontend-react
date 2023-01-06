@@ -1,14 +1,3 @@
-// import { Link,useNavigate, Switch, Route, BrowserRouter as Router } from "react-router-dom";
-import {
-  Switch,
-  Route,
-  Link,
-  useNavigate,
-  BrowserRouter,
-} from 'react-router-dom';
-
-// import {Switch} from 'react-router-dom';
-import { faker } from '@faker-js/faker';
 // @mui
 import { useTheme } from '@mui/material/styles';
 import { Grid, Container, Typography } from '@mui/material';
@@ -29,20 +18,6 @@ import Card12 from "./MainCard/Card12";
 import Card13 from "./MainCard/Card13";
 import Card14 from "./MainCard/Card14";
 import Card15 from "./MainCard/Card15";
-
-import Iconify from '../components/Iconify';
-// sections
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-} from '../sections/@dashboard/app';
 
 // ----------------------------------------------------------------------
 

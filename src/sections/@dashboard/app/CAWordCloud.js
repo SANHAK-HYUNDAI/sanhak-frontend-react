@@ -2,11 +2,11 @@ import React from 'react';
 import ReactWordcloud from 'react-wordcloud';
 import { Card, CardHeader } from '@mui/material';
 
-import words from "./words";
+import CAwords from "./CAwords";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function WordCloud({title, list}) {
+export default function CAWordCloud({title, list}) {
 
   const options = {
     enableTooltip: true,
@@ -26,7 +26,7 @@ export default function WordCloud({title, list}) {
     return (
         <Card>
           <CardHeader title={title}/>
-          <ReactWordcloud options={options} words={words} />
+          <ReactWordcloud options={options} words={CAwords} />
         </Card>
       );
     }

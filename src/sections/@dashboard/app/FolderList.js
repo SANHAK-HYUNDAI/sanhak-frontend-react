@@ -16,7 +16,7 @@ FolderList.propTypes = {
 
 export default function FolderList({title, list}) {
   const ListItemTest = (list.map((sub) =>
-        <ListItem key={sub.id} value={sub.subcategory} >
+        <ListItem key={sub.probability} >
           <ListItemAvatar>
           <Avatar sx={{bgcolor : pink[100]}}>
             <TaskAltIcon />

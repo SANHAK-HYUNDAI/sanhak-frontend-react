@@ -8,7 +8,7 @@ import Page from '../components/Page';
 import {
 AppConversionRates,
 FolderList,
-WordCloud,
+CAWordCloud,
 FolderList2
 } from '../sections/@dashboard/app';
 
@@ -64,7 +64,7 @@ return (
 
   <Grid container spacing={2}>
     <Grid item xs={15} md={8} lg={8}>
-      <WordCloud title = "WordCloud"/>
+      <CAWordCloud title = "WordCloud"/>
       </Grid>
 
       <Grid item xs={15} md={6} lg={4}>
