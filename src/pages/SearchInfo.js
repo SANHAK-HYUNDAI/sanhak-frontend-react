@@ -1,7 +1,4 @@
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
-import { spacing } from '@mui/system';
-import { Link as RouterLink } from 'react-router-dom';
 import React, {useEffect, useState} from "react";
 
 // material
@@ -9,28 +6,20 @@ import {
   Card,
   Table,
   Stack,
-  Avatar,
-  Button,
   Checkbox,
   TableRow,
   TableBody,
   TableCell,
   Container,
   Typography,
-  TableContainer,
   TablePagination,
 } from '@mui/material';
 // components
-import Check from './Check';
 import Page from '../components/Page';
-import ExTable from './ExTable';
-import Label from '../components/Label';
-import Scrollbar from '../components/Scrollbar';
-import Iconify from '../components/Iconify';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
- import USERLIST from '../_mock/user';
+import USERLIST from '../_mock/user';
 
 // ----------------------------------------------------------------------
 
@@ -90,6 +79,8 @@ const [data, setData] = useState([]);
         fetchData().then(res => setData(res)); 
     }, []);
 
+  const USERLIST = data.values;
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -110,7 +101,7 @@ const [data, setData] = useState([]);
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = data.values.map((n) => n.name);
+      const newSelecteds = USERLIST.map((n) => n.name);
       setSelected(newSelecteds);
       return;
     }
@@ -145,9 +136,9 @@ const [data, setData] = useState([]);
     setFilterName(event.target.value);
   };
 
-  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - data.values.length) : 0;
+  const emptyRows = page > 0 ? Math.max(0, (1 + page) * rowsPerPage - USERLIST.length) : 0;
 
-  const filteredUsers = applySortFilter(data.values, getComparator(order, orderBy), filterName);
+  const filteredUsers = applySortFilter(USERLIST, getComparator(order, orderBy), filterName);
 
   const isUserNotFound = filteredUsers.length === 0;
 
@@ -176,7 +167,7 @@ const [data, setData] = useState([]);
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
-                  rowCount={data.values.length}
+                  rowCount={USERLIST.length}
                   numSelected={selected.length}
                   onRequestSort={handleRequestSort}
                   onSelectAllClick={handleSelectAllClick}
@@ -205,8 +196,8 @@ const [data, setData] = useState([]);
                           </Typography>
                           </Stack>
                         </TableCell>
-                        <TableCell variant="subtitle2">{bigPhenom}</TableCell>
-                        <TableCell align="left">{specialNote}</TableCell>
+                        <TableCell variant="subtitle2" > {bigPhenom}</TableCell>
+                        <TableCell style={{width:'45%'}} align="left">{specialNote}</TableCell>
                         <TableCell align="left">{location}</TableCell>
                         <TableCell align="left">{problematic}</TableCell>
                         <TableCell align="left">{cause}</TableCell>
@@ -223,21 +214,18 @@ const [data, setData] = useState([]);
                 {isUserNotFound && (
                   <TableBody>
                     <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                      <TableCell align="center" colSpan={6}  >
                         <SearchNotFound searchQuery={filterName} />
                       </TableCell>
                     </TableRow>
                   </TableBody>
                 )}
               </Table>
-              
-
-
           
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}
             component="div"
-            count={data.values.length}
+            count={USERLIST.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}
