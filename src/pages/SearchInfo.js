@@ -1,5 +1,6 @@
 import { filter } from 'lodash';
 import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 // material
 import {
@@ -19,7 +20,7 @@ import Page from '../components/Page';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
-import USERLIST from '../_mock/user';
+// import USERLIST from '../_mock/user';
 
 // ----------------------------------------------------------------------
 
@@ -67,20 +68,21 @@ export default function SearchInfo() {
   
 // ----------------------------------------------------------------------
 
-const [data, setData] = useState([]);
-  
-  	useEffect(() => {
-		const fetchData = async() => {
-          const res = await fetch('https://kw-dormitory.k-net.kr/api/ROs');
-          const result = res.json();
-          return result;
-        }	
-        
-        fetchData().then(res => setData(res)); 
-    }, []);
+const [USERLIST, setUSERLIST] = useState([]);
 
+useEffect(() => {
+  const fetchUsers = async () => {
+   
+      const response = await axios.get(
+        'https://kw-dormitory.k-net.kr/api/ROs'
+      );
+      setUSERLIST(response.data.values);
+  };
 
-  // const USERLIST = data.values;
+  fetchUsers();
+}, []);
+
+console.log(USERLIST);
 
   const [page, setPage] = useState(0);
 
