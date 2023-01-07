@@ -4,7 +4,7 @@ import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import RoData from './pages/RoData';
-import Search from './pages/SearchInfo';
+import Search from './pages/Search';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
