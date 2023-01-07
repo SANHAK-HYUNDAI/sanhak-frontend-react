@@ -20,13 +20,13 @@ import Page from '../components/Page';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // mock
-// import USERLIST from '../_mock/user';
+import USERLIST from '../_mock/user';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
   { id: 'vehicleType', label: '차종', alignRight: false },
-  { id: 'name', label: '현상', alignRight: false },
+  { id: 'bigPhenom', label: '현상', alignRight: false },
   { id: 'specialNote', label: '특이사항', alignRight: false },
   { id: 'location', label: '위치', alignRight: false },
   { id: 'problematic',label: '문제현상', alignRight: false },
@@ -59,7 +59,7 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.vehicleType.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_user) => _user.specialNote.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
@@ -104,18 +104,18 @@ console.log(USERLIST);
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
+      const newSelecteds = USERLIST.map((n) => n.specialNote);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, specialNote) => {
+    const selectedIndex = selected.indexOf(specialNote);
     let newSelected = [];
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, specialNote);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -178,19 +178,19 @@ console.log(USERLIST);
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const { vehicleType, bigPhenom, specialNote, location, problematic, cause } = row;
-                    const isItemSelected = selected.indexOf(bigPhenom) !== -1;
+                    const isItemSelected = selected.indexOf(specialNote) !== -1;
 
                     return (
                       <TableRow
                         hover
-                        key={vehicleType}
+                        key={specialNote}
                         tabIndex={-1}
                         role="checkbox"
                         selected={isItemSelected}
                         aria-checked={isItemSelected}
                       >
                         <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, bigPhenom)} />
+                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, specialNote)} />
                         </TableCell>
                         <TableCell component="th" scope="row" padding="none">
                           <Stack direction="row" alignItems="center" spacing={2}>
