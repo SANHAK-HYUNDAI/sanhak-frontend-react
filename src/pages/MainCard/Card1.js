@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import sheet from '../../images/Dashboard images/부품외관.JPG';
 
+
 export default function MediaCard() {
   return (
     <Card sx={{ maxWidth: 300}}>
