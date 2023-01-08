@@ -271,4 +271,45 @@
             />
           </Grid>
             */
+
+
+          /*
+  /* 
+  const theme = useTheme();
+  const [card, setCard] = useState([]);
+  useEffect(() => {
+    fetch("API주소").then(res => res.json()).then(res=>setCard(res))
+  }, []);
+
+  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  return (
+    <Page title="Dashboard">
+      <Container maxWidth="xl">
+        <Typography variant="h4" sx={{ mb: 5 }}>
+          Good Morning !
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 3 }}>
+          항목 선택<br />
+          <hr
+            style={{
+              position: 'absolute',
+              width: '82.91px',
+              height: '0px',
+              border: '1px solid #BCBCBC',
+            }}
+          />
+          </Typography>
+          <Grid container spacing={1}>
+          <Grid item xs={3.0}>
+          <Card1 />
+          <CardList title={card} />
+          </Grid>
+          </Grid>
+          </Container>
+          </Page>
+  );
+}
+*/
+ 
+ 
         

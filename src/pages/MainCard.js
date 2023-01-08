@@ -6,10 +6,9 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import sheet from '../../images/Dashboard images/부품외관.JPG';
+import sheet from '../images/Dashboard images/부품외관.JPG';
 
-
-export default function MediaCard({big,sub}) {
+export default function MainCard({big,sub}) {
   return (
     <Card sx={{ maxWidth: 300}}>
       <CardMedia
@@ -39,4 +38,4 @@ export default function MediaCard({big,sub}) {
       </CardActions>
     </Card>
   );
-}
+};

@@ -15,6 +15,7 @@ import { Grid, Container, Typography } from '@mui/material';
 import CardList from '../sections/@dashboard/app/CardList';
 // components
 import Page from '../components/Page';
+import MainCard from './MainCard';
 import Card1 from "./MainCard/Card1";
 import Card2 from "./MainCard/Card2";
 import Card3 from "./MainCard/Card3";
@@ -48,31 +49,28 @@ import {
 
 // ----------------------------------------------------------------------
 
-const BigCategoryItem =[
-  { label: '도어 개폐불량', value: 1 },
-  { label: '진동', value: 2 },
-  { label: '기타', value: 2 },
-  { label: '녹 발생', value: 3 },
-  { label: '냄새과다', value: 4 },
-  { label: '사용/위치 불편', value: 33 },
-  { label: '경고등 점등', value: 36 },
-  { label: '조립문제', value: 69 },
-  { label: '소음/이음', value: 286 },
-  { label: '부품 외관', value: 320 },
-  { label: '시트 작동 소음/이음', value: 410 },
-  { label: '작동 불량', value: 489 },
-  { label: '시트 작동불량/시트벨트_작동불량', value: 551 },
-];
-
-
 export default function DashboardApp() {
-  const theme = useTheme();
-  const [card, setCard] = useState([]);
-  useEffect(() => {
-    fetch("API주소").then(res => res.json()).then(res=>setCard(res))
-  }, []);
 
-  // SearchBox 에 props로 넘겨줄 handleChange 메소드 정의
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    // const response = await fetch(
+    //   `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+    // );
+    // const json = await response.json();
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+      )
+    ).json(); // await를 await로 감싸기
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovies();
+  }, []);
+  console.log(movies);
+
   return (
     <Page title="Dashboard">
       <Container maxWidth="xl">
@@ -89,16 +87,28 @@ export default function DashboardApp() {
               border: '1px solid #BCBCBC',
             }}
           />
-          </Typography>
+        </Typography>
+       
+    <div>
+      {loading ? (
+        <h1>Loading...</h1>
+      ) : (
+        <div>
           <Grid container spacing={1}>
-          <Grid item xs={3.0}>
-          <Card1 />
-          <CardList title={card} />
-          </Grid>
-          </Grid>
+           <Grid item xs={3.0}> 
+          {movies.map((card) => (
+           // <div key={card.id}>{card.title}{card.title_long}
+            <MainCard big={card.title} sub={card.title_long} />
+          // </div>
+          ))}
+          
+           </Grid>
+           </Grid>
+          </div>
+      )}
+          </div>
           </Container>
           </Page>
-  );
+      );
+  
 }
- 
- 
