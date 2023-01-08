@@ -29,7 +29,7 @@ export default function DashboardApp() {
     <Page title="Dashboard">
       <Container maxWidth="xl">
         <Typography variant="h4" sx={{ mb: 5 }}>
-          Good Morning !
+          HYUNDAI TRANSYS
         </Typography>
         <Typography variant="h6" sx={{ mb: 3 }}>
           항목 선택<br />
