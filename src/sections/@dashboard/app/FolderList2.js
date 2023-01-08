@@ -17,13 +17,13 @@ FolderList2.propTypes = {
 export default function FolderList2({title, list}) {
 
   const ListItemTest = (list.map((keyword) =>
-        <ListItem key={keyword.index} >
+        <ListItem key={keyword.value} >
           <ListItemAvatar>
           <Avatar sx={{bgcolor : pink[50]}}>
             <ArrowRightIcon sx={{ fontSize: 30 }}/>
           </Avatar>
         </ListItemAvatar>
-          <ListItemText primaryTypographyProps={{fontSize: '18px', fontStyle:"bolder"}} primary={keyword.word} />
+          <ListItemText primaryTypographyProps={{fontSize: '18px', fontStyle:"bolder"}} primary={keyword.text} />
         </ListItem>
         )
       );

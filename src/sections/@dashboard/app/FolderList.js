@@ -16,14 +16,14 @@ FolderList.propTypes = {
 
 export default function FolderList({title, list}) {
   const ListItemTest = (list.map((sub) =>
-        <ListItem key={sub.probability} >
+        <ListItem key={sub.rate} >
           <ListItemAvatar>
           <Avatar sx={{bgcolor : pink[100]}}>
             <TaskAltIcon />
           </Avatar>
         </ListItemAvatar>
-          <ListItemText primaryTypographyProps={{fontSize: '12px'}} primary={sub.subcategory} 
-                        secondaryTypographyProps={{fontSize: '13px'}} secondary= {sub.probability}/>
+          <ListItemText primaryTypographyProps={{fontSize: '12px'}} primary={sub.subCateName} 
+                        secondaryTypographyProps={{fontSize: '13px'}} secondary= {sub.rate}/>
         </ListItem>
         )
       );

@@ -1,12 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ReactWordcloud from 'react-wordcloud';
 import { Card, CardHeader } from '@mui/material';
-
-import CAwords from "./CAwords";
+import axios from "axios";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
 export default function CAWordCloud({title, list}) {
+
+  const [CAwords, setCAwords] = useState([]);
+
+  useEffect(() => {
+    const fetchDatas = async () => {
+     
+        const response = await axios.get(
+          'https://kw-dormitory.k-net.kr/api/CAs/statistics'
+        );
+        setCAwords(response.data.keywords);
+    };
+  
+    fetchDatas();
+  }, []);
 
   const options = {
     enableTooltip: true,

@@ -72,9 +72,9 @@ useEffect(() => {
   const fetchUsers = async () => {
    
       const response = await axios.get(
-        'https://kw-dormitory.k-net.kr/api/ROs'
+        'https://kw-dormitory.k-net.kr/api/ROs/all'
       );
-      setUSERLIST(response.data.values);
+      setUSERLIST(response.data);
   };
 
   fetchUsers();
@@ -197,7 +197,7 @@ console.log(USERLIST);
                           </Typography>
                           </Stack>
                         </TableCell>
-                        <TableCell variant="subtitle2" > {bigPhenom}</TableCell>
+                        <TableCell style={{width:'15%'}} variant="subtitle2" > {bigPhenom}</TableCell>
                         <TableCell style={{width:'40%'}} align="left">{specialNote}</TableCell>
                         <TableCell align="left">{location}</TableCell>
                         <TableCell align="left">{problematic}</TableCell>
