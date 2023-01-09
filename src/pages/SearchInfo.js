@@ -78,7 +78,7 @@ useEffect(() => {
   };
 
   fetchUsers();
-}, []);
+}, [USERLIST]);
 
 console.log(USERLIST);
 
@@ -153,7 +153,7 @@ console.log(USERLIST);
         </Stack>
 
         <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
+          <UserListToolbar filterName={filterName} onFilterName={handleFilterByName} />
               
               <Table>
                 <UserListHead
@@ -161,29 +161,18 @@ console.log(USERLIST);
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
                   rowCount={USERLIST.length}
-                  numSelected={selected.length}
                   onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
                     const { vehicleType, bigPhenom, specialNote, location, problematic, cause } = row;
-                    const isItemSelected = selected.indexOf(specialNote) !== -1;
 
                     return (
-                      <TableRow
-                        hover
-                        key={specialNote}
-                        tabIndex={-1}
-                        role="checkbox"
-                        selected={isItemSelected}
-                        aria-checked={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, specialNote)} />
-                        </TableCell>
+                      <TableRow>
+                        <TableCell style={{width:'2%'}} > {}</TableCell>
                         <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
+                          <Stack direction="row" alignItems="left" spacing={2}>
+                          <Typography>{}</Typography>
                           <Typography variant="subtitle1" noWrap>
                             {vehicleType}
                           </Typography>
