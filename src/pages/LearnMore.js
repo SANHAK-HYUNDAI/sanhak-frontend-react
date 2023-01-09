@@ -82,6 +82,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
+// 함수 시작 
 export default function LearnMore({bigcategory}) {
   const [page, setPage] = useState(0);
 
@@ -167,7 +168,7 @@ export default function LearnMore({bigcategory}) {
             #{pageTitle}
           </Typography>
 
-        <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
+        <Button size="small" component={Link} to ="/LearnMore/information" state={{ clickedcell: pageTitle }}>표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
 
         </Stack>
         

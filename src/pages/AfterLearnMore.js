@@ -2,7 +2,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { spacing } from '@mui/system';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link , useLocation} from 'react-router-dom';
 // material
 import {
   Table,
@@ -82,8 +82,8 @@ function applySortFilter(array, comparator, query) {
   }
   return stabilizedThis.map((el) => el[0]);
 }
-
-export default function AfterLearnMore() {
+// 함수 시작
+export default function AfterLearnMore({clickedcell}) {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -95,6 +95,10 @@ export default function AfterLearnMore() {
   const [filterName, setFilterName] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  const location = useLocation();
+
+	const cellinfo = location.state.clickedcell;
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';

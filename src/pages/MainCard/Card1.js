@@ -22,7 +22,8 @@ export default function MediaCard({big,sub}) {
         <Typography gutterBottom variant="h5" component="div">
           #{big}
         </Typography>
-        <Typography variant="body2" color="text.secondary">
+        <Typography variant="body2" color="text.secondary"
+         >
           {sub}
         {/* <br />
           실밥 터짐/돌출<br />
