@@ -34,7 +34,7 @@ export default function MainCard({big,sub}) {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" component={Link} to="./LearnMore">Learn More</Button>
+        <Button size="small" component={Link} to="./LearnMore" state={{ bigcategory: big }}>Learn More</Button>
       </CardActions>
     </Card>
   );

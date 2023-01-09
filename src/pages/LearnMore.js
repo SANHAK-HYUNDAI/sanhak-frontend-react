@@ -2,7 +2,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { spacing } from '@mui/system';
-import { Link } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
 
 import * as React from 'react';
 // material
@@ -24,18 +24,6 @@ import {
   TablePagination,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-  FolderList,
-  } from '../sections/@dashboard/app';
 
 // components
 import Check from './Check';
@@ -94,7 +82,7 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function LearnMore() {
+export default function LearnMore({bigcategory}) {
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -106,6 +94,11 @@ export default function LearnMore() {
   const [filterName, setFilterName] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
+
+  
+  const location = useLocation();
+
+	const pageTitle = location.state.bigcategory;
 
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
@@ -165,12 +158,13 @@ export default function LearnMore() {
     lineHeight: '30px', 
   }));
 
+
   return (
     <Page title="User">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={7}>
           <Typography variant="h3" gutterBottom >
-            #시트작동
+            #{pageTitle}
           </Typography>
 
         <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>

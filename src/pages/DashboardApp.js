@@ -50,7 +50,7 @@ import {
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
-
+/*
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
   const getMovies = async () => {
@@ -70,6 +70,7 @@ export default function DashboardApp() {
     getMovies();
   }, []);
   console.log(movies);
+  */
 
   return (
     <Page title="Dashboard">
@@ -88,25 +89,54 @@ export default function DashboardApp() {
             }}
           />
         </Typography>
-       
-    <div>
-      {loading ? (
-        <h1>Loading...</h1>
-      ) : (
-        <div>
-          <Grid container spacing={1}>
-           <Grid item xs={3.0}> 
-          {movies.map((card) => (
-           // <div key={card.id}>{card.title}{card.title_long}
-            <MainCard big={card.title} sub={card.title_long} />
-          // </div>
-          ))}
-          
-           </Grid>
-           </Grid>
-          </div>
-      )}
-          </div>
+
+        <Grid container spacing={1}>
+          <Grid item xs={3.0}>
+            <MainCard big={"부품외관"} sub={"실밥 터짐/돌출"} />
+          </Grid>  
+          <Grid item xs={3.0}>
+          <MainCard big={"시트작동"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+            <MainCard big={"시트 소음"} sub={"실밥 터짐/돌출"} />
+          </Grid> 
+          <Grid item xs={3.0}>
+            <MainCard big={"작동 불량"} sub={"실밥 터짐/돌출"} />
+          </Grid> 
+          <Grid item xs={3.0}>
+            <MainCard big={"소음/이음"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"냄새과다"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"조립 문제"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"도어 개폐"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"기밀 불량"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"사용/위치"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"진동"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item xs={3.0}>
+           <MainCard big={"기타"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item sm={3.0}>
+           <MainCard big={"부품도장"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item sm={3.0}>
+           <MainCard big={"경고등"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+          <Grid item sm={3.0}>
+           <MainCard big={"녹 발생"} sub={"실밥 터짐/돌출"} />
+          </Grid>
+        </Grid> 
           </Container>
           </Page>
       );
