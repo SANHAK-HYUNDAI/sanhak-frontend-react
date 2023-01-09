@@ -6,7 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import sheet from '../images/Dashboard images/부품외관.JPG';
+import sheet from '../images/Dashboard images/경고등.JPG';
+
+
+
 
 export default function MainCard({big,sub}) {
   return (
@@ -23,6 +26,7 @@ export default function MainCard({big,sub}) {
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {sub}
+          
         {/* <br />
           실밥 터짐/돌출<br />
           굴곡/변형/고장<br />
