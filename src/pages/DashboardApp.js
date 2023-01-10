@@ -50,6 +50,10 @@ import {
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
+
+ 
+
+
 /*
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
@@ -71,6 +75,10 @@ export default function DashboardApp() {
   }, []);
   console.log(movies);
   */
+
+const div = document.getElementById('my_div');
+const clearbtn = document.getElementById('clearbtn');
+const result = document.getElementById('result');
 
   return (
     <Page title="Dashboard">

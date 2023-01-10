@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { spacing } from '@mui/system';
 import { Link, useLocation} from 'react-router-dom';
 
@@ -158,6 +158,25 @@ export default function LearnMore({bigcategory}) {
     color: theme.palette.text.secondary,
     lineHeight: '30px', 
   }));
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    // const response = await fetch(
+    //   `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+    // );
+    // const json = await response.json();
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+      )
+    ).json(); // await를 await로 감싸기
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovies();
+  }, []);
+  console.log(movies);
 
 
   return (
@@ -183,7 +202,7 @@ export default function LearnMore({bigcategory}) {
             </Button>
           </Typography>
           
-          <NaverCafeTable />
+          <NaverCafeTable/>
           <TablePagination
             rowsPerPageOptions={[5, 20, 25]}
             component="div"

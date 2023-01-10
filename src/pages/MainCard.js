@@ -13,8 +13,6 @@ import sheet from '../images/Dashboard images/경고등.JPG';
 
 export default function MainCard({big,sub}) {
 
-  const lists = sub.list;
-  
   return (
     <Card sx={{ maxWidth: 300}}>
       <CardMedia
@@ -32,16 +30,8 @@ export default function MainCard({big,sub}) {
         <Typography variant="body2" color="text.secondary">{sub[1]}</Typography>
         <Typography variant="body2" color="text.secondary">{sub[2]}</Typography>
         <Typography variant="body2" color="text.secondary">{sub[3]}</Typography>
-        {/* <br />
-          실밥 터짐/돌출<br />
-          굴곡/변형/고장<br />
-          트림 벌어짐/간섭<br />
-          파손/긁힘<br />
-          가죽 주름/들뜸<br />
-          투입물 고정/장착불량<br />
-  얼보임/유막현상<br /> */}
         
-      </CardContent>
+       </CardContent>
       <CardActions>
         <Button size="small" component={Link} to="./LearnMore" state={{ bigcategory: big }}>Learn More</Button>
       </CardActions>

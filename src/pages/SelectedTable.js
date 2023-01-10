@@ -65,7 +65,7 @@ const rows = [
   createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
 ];
 
-export default function CustomizedTables() {
+export default function SelectedTable({selected}) {
   return (
     <TableContainer component={Paper}>
      
@@ -78,11 +78,11 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.cafe}>
-              <StyledTableCell component="th" scope="row">{row.cafe}</StyledTableCell>
+          {selected.map((row) => (
+            <StyledTableRow key={row.id}>
+              <StyledTableCell component="th" scope="row">{row.id}</StyledTableCell>
               <StyledTableCell align="center">{row.title}</StyledTableCell>
-              <StyledTableCell align="center">{row.keyword}</StyledTableCell>
+              <StyledTableCell align="center">{row.rating}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

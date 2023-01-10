@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { spacing } from '@mui/system';
 import { Link , useLocation} from 'react-router-dom';
 // material
@@ -82,6 +82,7 @@ function applySortFilter(array, comparator, query) {
   }
   return stabilizedThis.map((el) => el[0]);
 }
+
 // 함수 시작
 export default function AfterLearnMore({clickedcell}) {
   const [page, setPage] = useState(0);
@@ -159,6 +160,26 @@ export default function AfterLearnMore({clickedcell}) {
     
   }));
 
+  const [loading, setLoading] = useState(true);
+  const [movies, setMovies] = useState([]);
+  const getMovies = async () => {
+    // const response = await fetch(
+    //   `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+    // );
+    // const json = await response.json();
+    const json = await (
+      await fetch(
+        `https://yts.mx/api/v2/list_movies.json?minimum_rating=9&sort_by=year`
+      )
+    ).json(); // await를 await로 감싸기
+    setMovies(json.data.movies);
+    setLoading(false);
+  };
+  useEffect(() => {
+    getMovies();
+  }, []);
+  console.log(movies);
+
   return (
     <Page title="User">
       <Container>
@@ -168,7 +189,7 @@ export default function AfterLearnMore({clickedcell}) {
           <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
             Naver Cafe Data
           </Typography>
-          <SelectedTable />
+          <SelectedTable selected ={movies} />
         </Item>
         
         </Grid>
@@ -179,20 +200,9 @@ export default function AfterLearnMore({clickedcell}) {
             <h4 style={{color : "#6E6E6E" , marginLeft:'20px', marginTop:'20px'}}>content</h4>   
             <hr style={{width : 60, color: '#BCBCBC' , marginLeft:'20px', marginBottom:'20px'}}/>
             <div style={{color:'#000000', letterSpacing:'0.01em', margin:'20px'}}>
-          광주에 서식하면서 여행차 경주에 와 있습니다 
-              맛집도 많고 보문호 풍광도 좋아서 만족중입니다 
-              공기도 참 깨끗하네요 아니고언제 나올지 어떻게 
-              만들어질지 모르지만제가 계약한 옵션 중에 프리미엄
-              패키지이지도어가 있는데요 궁금한 점은 뒷좌석를 선택하지 
-              않았으므로 당연히뒷좌석 만 적용받을텐데 이렇게 되면 
-              좌석이 어느 눕혀지면서 레그레스트가 올라오고 뒷좌석가 
-              없으므로 조수석 등받이에 발을 대야하는 형편이맞는거죠를 
-              안해놓고 쇼품에서는 풀옵만 타봤으니  뻘짓만 한것은 아닌지 
-              궁금한 점을 정리하자면 발 올릴 곳 없으니 올리려면 조수석 
-              등받이에 대는 거 그나마 원터치로 이루어지는지 궁금하네요미처 
-              생각못한 부분이고 제가 아무리봐도 정확히 파악을 없어서 질문으로
-              올립니다햐이거 옵션 추가하여 계약을 변경해야는지 갑자기 심난한 
-              밤입니다요 심난하지는 않고뭐 그렇다고요
+            {movies.map((cell) => (
+            <div>{cell.title}</div>
+          ))}
               </div>
         </Item>
       </Grid>
