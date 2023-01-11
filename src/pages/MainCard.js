@@ -13,10 +13,29 @@ import LearnMore from './LearnMore';
 import Page from '../components/Page';
 
 export default function MainCard({CardList}) {
-    
+
     const MainCardList = (CardList.map((card) =>
+    <Page title="Dashboard">
+      <Container maxWidth="xl">
+        <Typography variant="h4" sx={{ mb: 5 }}>
+          HYUNDAI TRANSYS
+        </Typography>
+        <Typography variant="h6" sx={{ mb: 3 }}>
+          항목 선택<br />
+        <hr
+          style={{
+            position: 'absolute',
+            width: '82.91px',
+            height: '0px',
+            border: '1px solid #BCBCBC',
+          }}
+        />
+
+      </Typography>
     <Grid container spacing={1}> 
          <Grid item xs={3.0}>
+         <Card sx={{ maxWidth: 300}}>
+        <CardMedia component="img" height="140" img src={sheet} alt="image" />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
                     # {card.CardName}
@@ -30,31 +49,17 @@ export default function MainCard({CardList}) {
                         <Button size="small" >Learn More</Button>
                     </Link>
                 </CardActions>
+                </Card>
             </Grid>
         </Grid>
+        </Container>
+        </Page>  
         )
     );
 
     return (
-    <Page title="Dashboard">
-      <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          HYUNDAI TRANSYS
-        </Typography>
-        <Typography variant="h6" sx={{ mb: 3 }}>
-          항목 선택<br />
-          <hr
-            style={{
-              position: 'absolute',
-              width: '82.91px',
-              height: '0px',
-              border: '1px solid #BCBCBC',
-            }}
-          />
 
-        </Typography>
             <MainCardList/> 
-        </Container>
-        </Page>   
+        
   );
 }

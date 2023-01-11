@@ -7,7 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import sheet from '../../images/Dashboard images/부품외관.JPG';
-import LearnMore from '../LearnMore';
+// import LearnMore from '../LearnMore';
 
 export default function Card1() {
 

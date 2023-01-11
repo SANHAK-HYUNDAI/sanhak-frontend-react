@@ -33,7 +33,9 @@ export default function MediaCard() {
                 </Typography>
             </CardContent>
             <CardActions>
-            <Button size="small" component={Link} to="./LearnMore">Learn More</Button>
+                 <Link to={"./LearnMore"} state = {{card : "부품 외관"}}>
+                <Button size="small" >Learn More</Button>
+                </Link>
             </CardActions>
         </Card>
     );
