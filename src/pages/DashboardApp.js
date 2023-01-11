@@ -137,13 +137,11 @@ const result = document.getElementById('result');
           </Grid>
 
           <Grid item sm={3.0}>
-           <MainCard big={"부품도장"} sub={['','변색/벗겨짐','도금 박리/불량','오염/분진']} />
+           <MainCard big={"부품도장"} sub={[' ','변색/벗겨짐','도금 박리/불량','오염/분진']} />
           </Grid>
-
           <Grid item sm={3.0}>
            <MainCard big={"경고등"} sub={['에어백','점등안됨','엔진','경고등 점등']} />
           </Grid>
-
           <Grid item sm={3.0}>
            <MainCard big={"녹발생"} sub={['','관통 부식','녹 발생','']} />
           </Grid>
