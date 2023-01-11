@@ -1,6 +1,6 @@
 import { filter } from 'lodash';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 import * as React from 'react';
 // material
@@ -68,6 +68,10 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function LearnMore() {
+
+  const location = useLocation();
+  const card = location.state.card;
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -143,7 +147,7 @@ export default function LearnMore() {
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h4" gutterBottom>
-            # 시트 작동
+           # {card} 
           </Typography>
       
         <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
@@ -156,9 +160,6 @@ export default function LearnMore() {
         <Item elevation={4}>
           <Typography variant="h3" gutterBottom style={{color:'#000000',marginTop:'10px',marginLeft:'10px'}}>
             Naver Cafe Data
-            <Button variant="contained" style={{ marginLeft:'1030px',backgroundColor:'#F6F6F6', color:'#1A2B88', text:'#1A2B88', width: '140px', height: '43px'}} >
-            total 256 data
-            </Button>
           </Typography>
           
           <NaverCafeTable />

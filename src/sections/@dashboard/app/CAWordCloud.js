@@ -25,7 +25,7 @@ export default function CAWordCloud({title, list}) {
     enableTooltip: true,
     deterministic: false,
     fontFamily: "impact",
-    fontSizes: [5, 90],
+    fontSizes: [10, 100],
     fontStyle: "normal",
     fontWeight: "normal",
     padding: 1,
