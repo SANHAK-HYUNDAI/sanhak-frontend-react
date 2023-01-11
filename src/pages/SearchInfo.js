@@ -1,50 +1,35 @@
 import { filter } from 'lodash';
-import { sentenceCase } from 'change-case';
-import { useState } from 'react';
-import { spacing } from '@mui/system';
-import { Link as RouterLink } from 'react-router-dom';
+import React, {useEffect, useState} from "react";
+import axios from "axios";
+
 // material
 import {
   Card,
   Table,
   Stack,
-  Avatar,
-  Button,
   Checkbox,
   TableRow,
   TableBody,
   TableCell,
   Container,
   Typography,
-  TableContainer,
   TablePagination,
 } from '@mui/material';
 // components
-import Check from './Check';
 import Page from '../components/Page';
-import ExTable from './ExTable';
-import Label from '../components/Label';
-import Scrollbar from '../components/Scrollbar';
-import Iconify from '../components/Iconify';
 import SearchNotFound from '../components/SearchNotFound';
-import { UserListHead, UserListToolbar, UserMoreMenu } from '../sections/@dashboard/user';
-// mock
-import USERLIST from '../_mock/user';
+import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' },
+  { id: 'vehicleType', label: '차종', alignRight: false },
+  { id: 'bigPhenom', label: '현상', alignRight: false },
+  { id: 'specialNote', label: '특이사항', alignRight: false },
+  { id: 'location', label: '위치', alignRight: false },
+  { id: 'problematic',label: '문제현상', alignRight: false },
+  { id: 'cause',label: '문제점', alignRight: false },
 ];
-
-const exstyle = `
-padding: 10px 10px;`;
-
 
 // ----------------------------------------------------------------------
 
@@ -72,12 +57,31 @@ function applySortFilter(array, comparator, query) {
     return a[1] - b[1];
   });
   if (query) {
-    return filter(array, (_user) => _user.name.toLowerCase().indexOf(query.toLowerCase()) !== -1);
+    return filter(array, (_user) => _user.specialNote.toLowerCase().indexOf(query.toLowerCase()) !== -1);
   }
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function User() {
+export default function SearchInfo() {
+  
+// ----------------------------------------------------------------------
+
+const [USERLIST, setUSERLIST] = useState([]);
+
+useEffect(() => {
+  const fetchUsers = async () => {
+   
+      const response = await axios.get(
+        'https://kw-dormitory.k-net.kr/api/ROs/all'
+      );
+      setUSERLIST(response.data);
+  };
+
+  fetchUsers();
+}, [USERLIST]);
+
+console.log(USERLIST);
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');
@@ -98,18 +102,18 @@ export default function User() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = USERLIST.map((n) => n.name);
+      const newSelecteds = USERLIST.map((n) => n.specialNote);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, specialNote) => {
+    const selectedIndex = selected.indexOf(specialNote);
     let newSelected = [];
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, specialNote);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -146,72 +150,39 @@ export default function User() {
           <Typography variant="h4" gutterBottom>
             Search Info
           </Typography>
-          {/*
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New User
-          </Button>
-          */}
         </Stack>
 
         <Card>
-          <UserListToolbar numSelected={selected.length} filterName={filterName} onFilterName={handleFilterByName} />
-
-          <Scrollbar>
-            <TableContainer sx={{ minWidth: 700 }}>
-            <Check sx={{ m: 3 }}/>
-            <ExTable/>
-            </TableContainer>
-          </Scrollbar>
-  
-
-              {/*
+          <UserListToolbar filterName={filterName} onFilterName={handleFilterByName} />
+              
               <Table>
                 <UserListHead
                   order={order}
                   orderBy={orderBy}
                   headLabel={TABLE_HEAD}
                   rowCount={USERLIST.length}
-                  numSelected={selected.length}
                   onRequestSort={handleRequestSort}
-                  onSelectAllClick={handleSelectAllClick}
                 />
                 <TableBody>
                   {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, name, role, status, company, avatarUrl, isVerified } = row;
-                    const isItemSelected = selected.indexOf(name) !== -1;
+                    const { vehicleType, bigPhenom, specialNote, location, problematic, cause } = row;
 
                     return (
-                      <TableRow
-                        hover
-                        key={id}
-                        tabIndex={-1}
-                        role="checkbox"
-                        selected={isItemSelected}
-                        aria-checked={isItemSelected}
-                      >
-                        <TableCell padding="checkbox">
-                          <Checkbox checked={isItemSelected} onChange={(event) => handleClick(event, name)} />
-                        </TableCell>
+                      <TableRow>
+                        <TableCell style={{width:'2%'}} > {}</TableCell>
                         <TableCell component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="center" spacing={2}>
-                            <Avatar alt={name} src={avatarUrl} />
-                            <Typography variant="subtitle2" noWrap>
-                              {name}
-                            </Typography>
+                          <Stack direction="row" alignItems="left" spacing={2}>
+                          <Typography>{}</Typography>
+                          <Typography variant="subtitle1" noWrap>
+                            {vehicleType}
+                          </Typography>
                           </Stack>
                         </TableCell>
-                        <TableCell align="left">{company}</TableCell>
-                        <TableCell align="left">{role}</TableCell>
-                        <TableCell align="left">{isVerified ? 'Yes' : 'No'}</TableCell>
-                        <TableCell align="left">
-                          <Label variant="ghost" color={(status === 'banned' && 'error') || 'success'}>
-                            {sentenceCase(status)}
-                          </Label>
-                        </TableCell>
-
-                        <TableCell align="right">
-                          <UserMoreMenu />
-                        </TableCell>
+                        <TableCell style={{width:'15%'}} variant="subtitle2" > {bigPhenom}</TableCell>
+                        <TableCell style={{width:'40%'}} align="left">{specialNote}</TableCell>
+                        <TableCell align="left">{location}</TableCell>
+                        <TableCell align="left">{problematic}</TableCell>
+                        <TableCell align="left">{cause}</TableCell>
                       </TableRow>
                     );
                   })}
@@ -225,16 +196,13 @@ export default function User() {
                 {isUserNotFound && (
                   <TableBody>
                     <TableRow>
-                      <TableCell align="center" colSpan={6} sx={{ py: 3 }}>
+                      <TableCell align="center" colSpan={6}  >
                         <SearchNotFound searchQuery={filterName} />
                       </TableCell>
                     </TableRow>
                   </TableBody>
                 )}
               </Table>
-              */}
-
-
           
           <TablePagination
             rowsPerPageOptions={[5, 10, 25]}

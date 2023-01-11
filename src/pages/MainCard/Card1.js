@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState, useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -7,8 +7,12 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import sheet from '../../images/Dashboard images/부품외관.JPG';
+// import LearnMore from '../LearnMore';
 
-export default function MediaCard() {
+export default function Card1() {
+
+
+
   return (
     <Card sx={{ maxWidth: 300}}>
       <CardMedia
@@ -33,7 +37,9 @@ export default function MediaCard() {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small" component={Link} to="./LearnMore">Learn More</Button>
+      <Link to={"./LearnMore"} state = {{card : "부품 외관"}}>
+        <Button size="small" >Learn More</Button>
+      </Link>
       </CardActions>
     </Card>
   );
