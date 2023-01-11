@@ -22,7 +22,6 @@ export default function MainCard({big,sub}) {
         <Typography gutterBottom variant="h5" component="div">
           #{big}
         </Typography>
-      
         <Typography variant="body2" color="text.secondary">{sub[0]}</Typography>
         <Typography variant="body2" color="text.secondary">{sub[1]}</Typography>
         <Typography variant="body2" color="text.secondary">{sub[2]}</Typography>
