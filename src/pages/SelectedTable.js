@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -7,7 +7,8 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-// import shadows from '@mui/material/styles/shadows';
+import axios from "axios";
+
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.root}`]: {
@@ -57,15 +58,24 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   
 }));
 
-function createData(cafe, title, keyword ) {
-  return { cafe, title, keyword };
-}
 
-const rows = [
-  createData('★제네시스 G90 풀체인지 공식대표카페★RS4가격,출시일,전기차', '뒷좌석 관련 (급) 질문드립니다','좌석 선택 좌석 선택 좌석 좌석 적용 좌석 경주 맛집 선택 좌석 적용'),
-];
+export default function SelectedTable({selectId}) {
 
-export default function CustomizedTables() {
+  console.log("selectedtable page : ", Number(selectId));
+
+  // API 호출
+  const [row, setRow] = useState([]);
+  
+  useEffect(() => {
+    const fetchOneRow = async () => {
+      
+        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
+        setRow(response.data);
+    };
+
+    fetchOneRow();
+  }, []);
+
   return (
     <TableContainer component={Paper}>
      
@@ -78,13 +88,11 @@ export default function CustomizedTables() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.cafe}>
-              <StyledTableCell component="th" scope="row">{row.cafe}</StyledTableCell>
+            <StyledTableRow key={row.cafeName}>
+              <StyledTableCell component="th" scope="row">{row.cafeName}</StyledTableCell>
               <StyledTableCell align="center">{row.title}</StyledTableCell>
-              <StyledTableCell align="center">{row.keyword}</StyledTableCell>
+              <StyledTableCell align="center">{row.keywords}</StyledTableCell>
             </StyledTableRow>
-          ))}
         </TableBody>
       </Table>
     </TableContainer>
