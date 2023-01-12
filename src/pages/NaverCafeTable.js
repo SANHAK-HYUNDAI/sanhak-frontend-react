@@ -106,5 +106,6 @@ export default function CustomizedTables() {
         </TableBody>
       </Table>
     </TableContainer>
+    
   );
 }

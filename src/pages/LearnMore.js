@@ -75,17 +75,17 @@ const columns = [
   {
     field: 'cafeName',
     headerName: '카페 이름',
-    width: 300,
+    width: 450,
   },
   {
     field: 'title',
     headerName: '제목',
-    width: 500,
+    width: 400,
   },
   {
     field: 'keywords',
     headerName: '키워드',
-    width: 300,
+    width: 250,
   },
 ];
 
@@ -186,105 +186,43 @@ export default function LearnMore({bigcategory}) {
   }));
   
   return (
-      <Page title="Dashboard: Learnmore">
+    <Page title="Dashboard: Learnmore">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
           <Typography variant="h3" gutterBottom>
           # {pageTitle} 
           </Typography>
       
-        <Button size="small" component={Link} to ="/LearnMore/information" state={{ clickedcell: selectedRow}} >표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
+        <Button variant="contained" size = "large" component={Link} to ="/LearnMore/information" state={{ clickedcell: selectedRow}} > 유사 RO정보 확인</Button>
 
         </Stack>
         <Card>
         <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
-   
-        <Grid item xs={20}> 
-        <Item elevation={4}>
-          <Typography variant="h3" gutterBottom style={{color:'#000000',marginTop:'10px',marginLeft:'10px'}}>
-            Naver Cafe Data
-          </Typography>
+          <Grid item xs={20}> 
+          <Item elevation={4}>
+            <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
+              Naver Cafe Data
+            </Typography>
           </Item>
           </Grid>
-          </Grid>
-          </Card>
-
-          {/* <Card>              
-              <Table>
-                <UserListHead
-                  order={order}
-                  orderBy={orderBy}
-                  headLabel={TABLE_HEAD}
-                  rowCount={USERLIST.length}
-                  onRequestSort={handleRequestSort}
-                />
-                <TableBody>
-                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
-                    const { id, cafeName, title, keywords } = row;
-
-                    return (
-                      <TableRow>
-                        <TableCell style={{width:'2%'}} > {}</TableCell>
-                        <TableCell style={{width:'30%'}} component="th" scope="row" padding="none">
-                          <Stack direction="row" alignItems="left" spacing={2}>
-                          <Typography>{}</Typography>
-                          <Typography >
-                            {cafeName}
-                          </Typography>
-                          </Stack>
-                        </TableCell>
-                        <TableCell style={{width:"40"}}> {title}</TableCell>
-                        <TableCell align="left" style={{fontSize:'18px', fontWeight:'bold'}}>{keywords}</TableCell>
-                        
-                      </TableRow>
-                    );
-                  })}
-                  {emptyRows > 0 && (
-                    <TableRow style={{ height: 53 * emptyRows }}>
-                      <TableCell colSpan={6} />
-                    </TableRow>
-                  )}
-                </TableBody>
-
-                {isUserNotFound && (
-                  <TableBody>
-                    <TableRow>
-                      <TableCell align="center" colSpan={6}  >
-                        <SearchNotFound searchQuery={filterName} />
-                      </TableCell>
-                    </TableRow>
-                  </TableBody>
-                )}
-              </Table>
-          
-          <TablePagination
-            rowsPerPageOptions={[5, 10, 25]}
-            component="div"
-            count={USERLIST.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onPageChange={handleChangePage}
-            onRowsPerPageChange={handleChangeRowsPerPage}
-          />
-          
-        </Card> */}
-
-        <Card>
-        <div style={{ height: 550, width: '100%' }}>
-      <DataGrid
-        rows={USERLIST}
-        columns={columns} 
-        pageSize={pageSize}
-        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-        rowsPerPageOptions={[25, 50, 100]}
-        onSelectionModelChange={(selection) => {
-          const selectedRowData = USERLIST[Number(selection)];
-          setSelectedRow(selection);
-        }}        
-        />
-      </div>
-        </Card>
-        </Container>
-        </Page>
+        </Grid>
+        
+        <Grid>
+          <div style={{ height: 550, width: '100%' }}>
+            <DataGrid
+              rows={USERLIST}
+              columns={columns} 
+              pageSize={pageSize}
+              onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+              rowsPerPageOptions={[25, 50, 100]}
+              onSelectionModelChange={(selection) => {
+              setSelectedRow(selection); // select한 CA id 값 전달
+            }}        
+            />
+          </div>
+        </Grid>
+      </Card>
+      </Container>
+    </Page>
   );
 }
