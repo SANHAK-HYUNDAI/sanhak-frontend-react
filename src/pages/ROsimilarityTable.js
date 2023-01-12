@@ -55,7 +55,7 @@ export default function ROsimilarityTable({selectId}) {
           <TableRow>
             <StyledTableCell style={{width: '5%'}} align="center">차종</StyledTableCell>
             <StyledTableCell style={{width: '20%'}} align="center">현상</StyledTableCell>
-            <StyledTableCell style={{width: '36%'}} align="center">특이사항&nbsp;</StyledTableCell>
+            <StyledTableCell style={{width: '30%'}} align="center">특이사항&nbsp;</StyledTableCell>
             <StyledTableCell style={{width: '7%'}} align="center">위치&nbsp;</StyledTableCell>
             <StyledTableCell style={{width: '7%'}} align="center">문제현상&nbsp;</StyledTableCell>
             <StyledTableCell style={{width: '13%'}} align="center">문제점&nbsp;</StyledTableCell>
@@ -68,7 +68,7 @@ export default function ROsimilarityTable({selectId}) {
                 {row.vehicleType}
               </StyledTableCell>
               <StyledTableCell style={{width: '20%'}} align="center">{row.subPhenom}</StyledTableCell>
-              <StyledTableCell style={{width: '36%'}} align="center">{row.specialNote}</StyledTableCell>
+              <StyledTableCell style={{width: '30%'}} align="center">{row.specialNote}</StyledTableCell>
               <StyledTableCell style={{width: '7%'}} align="center">{row.location}</StyledTableCell>
               <StyledTableCell style={{width: '7%'}} align="center">{row.problematic}</StyledTableCell>
               <StyledTableCell style={{width: '13%'}} align="center">{row.cause}</StyledTableCell>
