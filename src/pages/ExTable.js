@@ -28,13 +28,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
+function createData(vehType, pheno, note, location, caused, problematicPhe, problem) {
+  return { vehType, pheno, note, location, caused, problematicPhe, problem };
 }
 
 const rows = [
-  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0,0,0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3,23,23),
   createData('Eclair', 262, 16.0, 24, 6.0),
   createData('Cupcake', 305, 3.7, 67, 4.3),
   createData('Gingerbread', 356, 16.0, 49, 3.9),
@@ -47,22 +47,26 @@ export default function CustomizedTables() {
         <TableHead>
           <TableRow>
             <StyledTableCell>차종</StyledTableCell>
-            <StyledTableCell align="right">★품번</StyledTableCell>
-            <StyledTableCell align="right">원인부품&nbsp;</StyledTableCell>
-            <StyledTableCell align="right">현상&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">현상</StyledTableCell>
             <StyledTableCell align="right">특이사항&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">위치&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">원인부품&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">문제현상&nbsp;</StyledTableCell>
+            <StyledTableCell align="right">문제점&nbsp;</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <StyledTableRow key={row.name}>
+            <StyledTableRow key={row.vehType}>
               <StyledTableCell component="th" scope="row">
-                {row.name}
+                {row.vehType}
               </StyledTableCell>
-              <StyledTableCell align="right">{row.calories}</StyledTableCell>
-              <StyledTableCell align="right">{row.fat}</StyledTableCell>
-              <StyledTableCell align="right">{row.carbs}</StyledTableCell>
-              <StyledTableCell align="right">{row.protein}</StyledTableCell>
+              <StyledTableCell align="right">{row.pheno}</StyledTableCell>
+              <StyledTableCell align="right">{row.note}</StyledTableCell>
+              <StyledTableCell align="right">{row.location}</StyledTableCell>
+              <StyledTableCell align="right">{row.caused}</StyledTableCell>
+              <StyledTableCell align="right">{row.problematicPhe}</StyledTableCell>
+              <StyledTableCell align="right">{row.problem}</StyledTableCell>
             </StyledTableRow>
           ))}
         </TableBody>

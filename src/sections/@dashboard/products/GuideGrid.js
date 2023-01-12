@@ -7,6 +7,8 @@ import repair from "../../../images/GuideIcon/repair.png";
 import search from "../../../images/GuideIcon/search.png";
 import home from "../../../images/GuideIcon/home.png";
 import MakeTable from './VehicleTable';
+import MakeTable2 from './VehicleTable2';
+import MakeTable3 from './VehicleTable3';
 import './index.css';
 // ----------------------------------------------------------------------
 
@@ -77,7 +79,9 @@ export default function GuideGrid() {
           <Typography variant="h5" sx = {{ margin : 2 }}gutterBottom>
             Types of vehicles (현대트랜시스 납부 차종 종류)
           </Typography>
-          <MakeTable />
+          <div>
+            <MakeTable />
+          </div>
         </Item>
       </Grid>
     </Grid>

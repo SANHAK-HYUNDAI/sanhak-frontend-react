@@ -19,18 +19,6 @@ export default function FormControlLabelPosition() {
         <FormControlLabel
           value="end"
           control={<Checkbox />}
-          label="품번"
-          labelPlacement="end"
-        />
-        <FormControlLabel
-          value="end"
-          control={<Checkbox />}
-          label="원인부품"
-          labelPlacement="end"
-        />
-        <FormControlLabel
-          value="end"
-          control={<Checkbox />}
           label="현상"
           labelPlacement="end"
         />
@@ -49,7 +37,7 @@ export default function FormControlLabelPosition() {
         <FormControlLabel
           value="end"
           control={<Checkbox />}
-          label="원인부품군집"
+          label="원인부품"
           labelPlacement="end"
         />
         <FormControlLabel
