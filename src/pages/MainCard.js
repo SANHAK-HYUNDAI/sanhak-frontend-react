@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import * as React from 'react';
 import {Link} from 'react-router-dom';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
@@ -6,60 +6,31 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import Container from '@mui/material/Container'
-import sheet from '../images/Dashboard images/부품외관.JPG';
-import LearnMore from './LearnMore';
-import Page from '../components/Page';
+import sheet from '../images/Dashboard images/경고등.JPG';
 
-export default function MainCard({CardList}) {
+export default function MainCard({big,sub}) {
 
-    const MainCardList = (CardList.map((card) =>
-    <Page title="Dashboard">
-      <Container maxWidth="xl">
-        <Typography variant="h4" sx={{ mb: 5 }}>
-          HYUNDAI TRANSYS
+  return (
+    <Card sx={{ maxWidth: 300}}>
+      <CardMedia
+        component="img"
+        height="140"
+        img src={sheet}
+        alt="image"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          #{big}
         </Typography>
-        <Typography variant="h6" sx={{ mb: 3 }}>
-          항목 선택<br />
-        <hr
-          style={{
-            position: 'absolute',
-            width: '82.91px',
-            height: '0px',
-            border: '1px solid #BCBCBC',
-          }}
-        />
-
-      </Typography>
-    <Grid container spacing={1}> 
-         <Grid item xs={3.0}>
-         <Card sx={{ maxWidth: 300}}>
-        <CardMedia component="img" height="140" img src={sheet} alt="image" />
-            <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                    # {card.CardName}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    {card.subName}
-                </Typography>
-            </CardContent>
-                <CardActions>
-                    <Link to={"./LearnMore"} state = {{card : card.CardName }}>
-                        <Button size="small" >Learn More</Button>
-                    </Link>
-                </CardActions>
-                </Card>
-            </Grid>
-        </Grid>
-        </Container>
-        </Page>  
-        )
-    );
-
-    return (
-
-            <MainCardList/> 
+        <Typography variant="body2" color="text.secondary">{sub[0]}</Typography>
+        <Typography variant="body2" color="text.secondary">{sub[1]}</Typography>
+        <Typography variant="body2" color="text.secondary">{sub[2]}</Typography>
+        <Typography variant="body2" color="text.secondary">{sub[3]}</Typography>
         
+       </CardContent>
+      <CardActions>
+        <Button size="small" component={Link} to="./LearnMore" state={{ bigcategory: big }}>Learn More</Button>
+      </CardActions>
+    </Card>
   );
-}
+};

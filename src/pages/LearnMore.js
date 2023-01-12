@@ -1,8 +1,7 @@
 import { filter } from 'lodash';
-import { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-
-import * as React from 'react';
+import axios from "axios";
 // material
 import {
   Card,
@@ -13,25 +12,28 @@ import {
   Container,
   Typography,
   TablePagination,
+  Table,
+  Checkbox,
+  TableRow,
+  TableBody,
+  TableCell,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 
 // components
 import Page from '../components/Page';
+import SearchNotFound from '../components/SearchNotFound';
+import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 import NaverCafeTable from './NaverCafeTable';
-import Scrollbar from '../components/Scrollbar';
 // mock
 import USERLIST from '../_mock/user';
 
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'name', label: 'Name', alignRight: false },
-  { id: 'company', label: 'Company', alignRight: false },
-  { id: 'role', label: 'Role', alignRight: false },
-  { id: 'isVerified', label: 'Verified', alignRight: false },
-  { id: 'status', label: 'Status', alignRight: false },
-  { id: '' },
+  { id: 'name', label: '카페이름', alignRight: false },
+  { id: 'title', label: '제목', alignRight: false },
+  { id: 'keyword', label: '키워드', alignRight: false },
 ];
 
 const exstyle = `padding: 10px 10px;`;
@@ -67,10 +69,28 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
-export default function LearnMore() {
+
+export default function LearnMore({bigcategory}) {
 
   const location = useLocation();
-  const card = location.state.card;
+	
+  const pageTitle= location.state.bigcategory;
+
+  // API 호출
+  const [USERLIST, setUSERLIST] = useState([]);
+
+  useEffect(() => {
+    const fetchNaverCafe = async () => {
+      
+        const response = await axios.get( 'https://kw-dormitory.k-net.kr/api/CAs/all', {params : {bigPhenom : pageTitle}});
+        console.log(pageTitle);
+        setUSERLIST(response.data);
+    };
+
+    fetchNaverCafe();
+  }, []);
+  
+  console.log(USERLIST);
 
   const [page, setPage] = useState(0);
 
@@ -141,16 +161,16 @@ export default function LearnMore() {
     color: theme.palette.text.secondary,
     lineHeight: '30px', 
   }));
-
+  
   return (
       <Page title="Dashboard: Learnmore">
       <Container>
         <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-           # {card} 
+          <Typography variant="h3" gutterBottom>
+          # {pageTitle} 
           </Typography>
       
-        <Button size="small" component={Link} to ="/LearnMore/information">표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
+        <Button size="small" component={Link} to ="./information" state={{ clickedcell: pageTitle}} >표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
 
         </Stack>
         <Card>
@@ -161,10 +181,61 @@ export default function LearnMore() {
           <Typography variant="h3" gutterBottom style={{color:'#000000',marginTop:'10px',marginLeft:'10px'}}>
             Naver Cafe Data
           </Typography>
+          </Item>
+          </Grid>
+          </Grid>
+          </Card>
+
+          <Card>              
+              <Table>
+                <UserListHead
+                  order={order}
+                  orderBy={orderBy}
+                  headLabel={TABLE_HEAD}
+                  rowCount={USERLIST.length}
+                  onRequestSort={handleRequestSort}
+                />
+                <TableBody>
+                  {filteredUsers.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row) => {
+                    const { id, cafeName, title, keywords } = row;
+
+                    return (
+                      <TableRow>
+                        <TableCell style={{width:'2%'}} > {}</TableCell>
+                        <TableCell style={{width:'30%'}} component="th" scope="row" padding="none">
+                          <Stack direction="row" alignItems="left" spacing={2}>
+                          <Typography>{}</Typography>
+                          <Typography >
+                            {cafeName}
+                          </Typography>
+                          </Stack>
+                        </TableCell>
+                        <TableCell style={{width:"40"}}> {title}</TableCell>
+                        <TableCell align="left" style={{fontSize:'18px', fontWeight:'bold'}}>{keywords}</TableCell>
+                        
+                      </TableRow>
+                    );
+                  })}
+                  {emptyRows > 0 && (
+                    <TableRow style={{ height: 53 * emptyRows }}>
+                      <TableCell colSpan={6} />
+                    </TableRow>
+                  )}
+                </TableBody>
+
+                {isUserNotFound && (
+                  <TableBody>
+                    <TableRow>
+                      <TableCell align="center" colSpan={6}  >
+                        <SearchNotFound searchQuery={filterName} />
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                )}
+              </Table>
           
-          <NaverCafeTable />
           <TablePagination
-            rowsPerPageOptions={[5, 20, 25]}
+            rowsPerPageOptions={[5, 10, 25]}
             component="div"
             count={USERLIST.length}
             rowsPerPage={rowsPerPage}
@@ -172,12 +243,9 @@ export default function LearnMore() {
             onPageChange={handleChangePage}
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
-        </Item>
-        </Grid>
-
-        </Grid>
+          
         </Card>
         </Container>
-    </Page>
+        </Page>
   );
 }
