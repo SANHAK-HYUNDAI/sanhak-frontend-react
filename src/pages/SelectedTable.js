@@ -16,11 +16,9 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     radius: '4px',
     '&$focusVisible': {
       backgroundColor: theme.palette.action.selected,
-     // boxshadow:theme.palette.action.selected,
     },
     '&$selected, &$selected:hover': {
       backgroundColor: theme.palette.action.selected,
-     // boxshadow:theme.palette.action.selected,
     },
     '&$disabled': {
       opacity: 0.5,
@@ -35,13 +33,11 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     fontSize: 14,
     focusVisible: {},
     '&:hover': {
-    /*  transition: theme.transitions.create('backgroundcolor', {
+        transition: theme.transitions.create('backgroundcolor', {
         duration: theme.transitions.duration.shortest,
-      }), */
+      }), 
       textDecoration: 'none',
       backgroundColor: theme.palette.action.hover,
-     // border: '1px solid #FFFFFF' ,
-      // border: customShadows(theme.palette.grey[500]),
     },
     },
       '@media (hover: none)': {
@@ -52,7 +48,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    // backgroundColor: theme.palette.action.hover,
     backgroundColor:theme.palette.common.white,
   },
   

@@ -80,8 +80,6 @@ useEffect(() => {
   fetchUsers();
 }, [USERLIST]);
 
-console.log(USERLIST);
-
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');

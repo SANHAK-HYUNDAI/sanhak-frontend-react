@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
@@ -26,7 +25,6 @@ return (
             <div style={{color:'#000000', letterSpacing:'0.01em', margin:'20px'}}>
             {row.content}
               </div>
-        
     </>
 );
 }
