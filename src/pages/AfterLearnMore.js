@@ -2,7 +2,7 @@ import { filter } from 'lodash';
 import { sentenceCase } from 'change-case';
 import { useState } from 'react';
 import { spacing } from '@mui/system';
-import { Link as RouterLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 // material
 import {
   Table,
@@ -84,6 +84,12 @@ function applySortFilter(array, comparator, query) {
 }
 
 export default function AfterLearnMore() {
+
+  const location = useLocation();
+
+  console.log(location.state.clickedcell)
+
+
   const [page, setPage] = useState(0);
 
   const [order, setOrder] = useState('asc');

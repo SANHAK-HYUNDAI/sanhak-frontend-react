@@ -1,7 +1,9 @@
 import { filter } from 'lodash';
 import React, { useState, useEffect } from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 import { Link, useLocation } from 'react-router-dom';
 import axios from "axios";
+
 // material
 import {
   Card,
@@ -69,8 +71,29 @@ function applySortFilter(array, comparator, query) {
   return stabilizedThis.map((el) => el[0]);
 }
 
+const columns = [
+  {
+    field: 'cafeName',
+    headerName: '카페 이름',
+    width: 300,
+  },
+  {
+    field: 'title',
+    headerName: '제목',
+    width: 500,
+  },
+  {
+    field: 'keywords',
+    headerName: '키워드',
+    width: 300,
+  },
+];
 
 export default function LearnMore({bigcategory}) {
+
+  const [pageSize, setPageSize] = React.useState(25);
+
+  const [selectedRow, setSelectedRow] = useState();
 
   const location = useLocation();
 	
@@ -170,7 +193,7 @@ export default function LearnMore({bigcategory}) {
           # {pageTitle} 
           </Typography>
       
-        <Button size="small" component={Link} to ="./information" state={{ clickedcell: pageTitle}} >표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
+        <Button size="small" component={Link} to ="/LearnMore/information" state={{ clickedcell: selectedRow}} >표의 Cell 클릭시 이동할 페이지(임시버튼)</Button>
 
         </Stack>
         <Card>
@@ -186,7 +209,7 @@ export default function LearnMore({bigcategory}) {
           </Grid>
           </Card>
 
-          <Card>              
+          {/* <Card>              
               <Table>
                 <UserListHead
                   order={order}
@@ -244,6 +267,22 @@ export default function LearnMore({bigcategory}) {
             onRowsPerPageChange={handleChangeRowsPerPage}
           />
           
+        </Card> */}
+
+        <Card>
+        <div style={{ height: 550, width: '100%' }}>
+      <DataGrid
+        rows={USERLIST}
+        columns={columns} 
+        pageSize={pageSize}
+        onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+        rowsPerPageOptions={[25, 50, 100]}
+        onSelectionModelChange={(selection) => {
+          const selectedRowData = USERLIST[Number(selection)];
+          setSelectedRow(selection);
+        }}        
+        />
+      </div>
         </Card>
         </Container>
         </Page>
