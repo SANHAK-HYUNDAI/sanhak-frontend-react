@@ -8,4 +8,4 @@ export { default as AppWidgetSummary } from './AppWidgetSummary';
 export { default as AppCurrentSubject } from './AppCurrentSubject';
 export { default as AppConversionRates } from './AppConversionRates';
 export { default as FolderList } from './FolderList';
-export { default as WordCloud } from './WordCloud';
+// export { default as WordCloud } from './WordCloud';
