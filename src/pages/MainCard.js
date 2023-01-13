@@ -6,9 +6,10 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import sheet from '../images/Dashboard images/경고등.JPG';
 
-export default function MainCard({big,sub}) {
+
+export default function MainCard({big,sub,sheet}) {
+
 
   return (
     <Card sx={{ maxWidth: 300}}>
@@ -20,7 +21,7 @@ export default function MainCard({big,sub}) {
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
-          #{big}
+          # {big}
         </Typography>
         <Typography variant="body2" color="text.secondary">{sub[0]}</Typography>
         <Typography variant="body2" color="text.secondary">{sub[1]}</Typography>

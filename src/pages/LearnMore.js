@@ -91,6 +91,7 @@ export default function LearnMore({bigcategory}) {
               pageSize={pageSize}
               onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
               rowsPerPageOptions={[25, 50, 100]}
+              backgroundColor='#90EE90'
               onSelectionModelChange={(selection) => {
               setSelectedRow(selection); // select한 CA id 값 전달
             }}        
