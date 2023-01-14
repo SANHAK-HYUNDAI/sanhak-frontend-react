@@ -1,27 +1,17 @@
 import { useState, useEffect, React } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-// material
-import {
-  Container,
-  Typography,
-  Grid,
-  Paper,
-} from '@mui/material';
-// components
+import { Container, Typography, Grid, Paper} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Page from '../components/Page';
 import ROsimilarityTable from './ROsimilarityTable';
 import SelectedTable from './SelectedTable';
 import SelectedContent from './SelectedContent';
 
-// ----------------------------------------------------------------------
-
 export default function AfterLearnMore() {
 
   const location = useLocation();
   console.log(location.state.clickedcell);
-
   const [selectId, setSelectId] = useState(location.state.clickedcell);
 
   // API 호출
@@ -33,7 +23,6 @@ export default function AfterLearnMore() {
         const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
-
     fetchOneRow();
   }, []);
 
@@ -44,7 +33,6 @@ export default function AfterLearnMore() {
     textAlign: 'left',
     color: theme.palette.text.secondary,
     lineHeight: '30px',
-    
   }));
 
   return (
@@ -58,27 +46,22 @@ export default function AfterLearnMore() {
           </Typography>
           <SelectedTable selectId = {selectId}/>
         </Item>
-        
         </Grid>
 
       <Grid item xs={20}> 
         <Item elevation={4}>
            <SelectedContent selectId = {selectId}/>
-           </Item>
-      </Grid>
-      
-      <Grid item xs={20}>
-        <Item elevation={4}>
-        <Typography variant="h4" gutterBottom style={{color:'#000000', margin:'20px', marginLeft:'10px'}}>Ro Data</Typography>
-          <ROsimilarityTable selectId = {selectId}/>
         </Item>
       </Grid>
+    
       <Grid item xs={20}>
-        {}
+        <Item elevation={4}>
+          <Typography variant="h4" gutterBottom style={{color:'#000000', margin:'20px', marginLeft:'10px'}}>Ro Data</Typography>
+            <ROsimilarityTable selectId = {selectId}/>
+        </Item>
       </Grid>
-
-    </Grid>
-    </Container>
+      </Grid>
+      </Container>
     </Page>
   );
 }

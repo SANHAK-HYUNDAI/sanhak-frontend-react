@@ -7,9 +7,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-
 export default function MainCard({big,sub,sheet}) {
-
 
   return (
     <Card sx={{ maxWidth: 300}}>
@@ -29,9 +27,9 @@ export default function MainCard({big,sub,sheet}) {
         <Typography variant="body2" color="text.secondary">{sub[3]}</Typography>
         
        </CardContent>
-      <CardActions>
-        <Button size="small" component={Link} to="./LearnMore" state={{ bigcategory: big }}>Learn More</Button>
-      </CardActions>
+        <CardActions>
+          <Button size="small" component={Link} to="./LearnMore" state={{ bigcategory: big }}>Learn More</Button>
+        </CardActions>
     </Card>
   );
 };

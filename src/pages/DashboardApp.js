@@ -1,15 +1,12 @@
-// @mui
-import React from "react";
+import { React } from "react";
 import { Grid, Container, Typography } from '@mui/material';
-
-// components
 import Page from '../components/Page';
 import MainCard from './MainCard';
-
 import images from './images';
-// ----------------------------------------------------------------------
+
 
 export default function DashboardApp() {
+  
 
 
   return (
@@ -29,6 +26,7 @@ export default function DashboardApp() {
             }}
           />
         </Typography>
+        
 
         <Grid container spacing={1.5} rowGap={2.2}>
           <Grid item xs={3.0}>
@@ -76,9 +74,8 @@ export default function DashboardApp() {
           <Grid item sm={3.0}>
            <MainCard big={"녹 발생"} sub={['','관통 부식','녹 발생','']} sheet={images.rust}/>
           </Grid>
-        </Grid> 
+          </Grid> 
           </Container>
           </Page>
       );
-  
 }
