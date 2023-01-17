@@ -4,7 +4,7 @@ import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
 //
 import RoData from './pages/RoData';
-import Search from './pages/Search';
+import SearchInfo from './pages/SearchInfo';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
@@ -21,7 +21,7 @@ export default function Router() {
       element: <DashboardLayout />,
       children: [
         { path: 'app', element: <DashboardApp /> },
-        { path: 'Search', element: <Search /> },
+        { path: 'SearchInfo', element: <SearchInfo /> },
         { path: 'Guide', element: <Guide /> },
         { path: 'RoData', element: <RoData /> },
         { path: 'NaverCafe', element: <NaverCafe /> }
