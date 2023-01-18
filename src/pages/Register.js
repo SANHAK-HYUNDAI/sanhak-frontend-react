@@ -8,7 +8,7 @@ import useResponsive from '../hooks/useResponsive';
 import Page from '../components/Page';
 import Logo from '../components/Logo';
 // sections
-import AuthSocial from '../sections/auth/AuthSocial';
+// import AuthSocial from '../sections/auth/AuthSocial';
 
 // ----------------------------------------------------------------------
 
@@ -92,7 +92,7 @@ export default function Register() {
 
             <Typography sx={{ color: 'text.secondary', mb: 5 }}>Free forever. No credit card needed.</Typography>
 
-            <AuthSocial />
+            {/* <AuthSocial /> */}
 
             {/* <RegisterForm /> */}
 
