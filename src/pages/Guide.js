@@ -1,6 +1,6 @@
 import { useState } from 'react';
 // material
-import { Container, Stack, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
 import { GuideGrid } from '../sections/@dashboard/products';
@@ -24,7 +24,6 @@ export default function EcommerceShop() {
           Guide
         </Typography>
         <GuideGrid />
-        {/* <ProductList products={PRODUCTS} /> */}
       </Container>
     </Page>
   );

@@ -1,16 +1,14 @@
 // @mui
 import React from "react";
 import { Grid, Container, Typography } from '@mui/material';
-
 // components
 import Page from '../components/Page';
 import MainCard from './MainCard';
-
+// images
 import images from './images';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
-
 
   return (
     <Page title="Dashboard">

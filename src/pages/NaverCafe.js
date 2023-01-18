@@ -34,7 +34,8 @@ useEffect(() => {
       const valueTest = bigTest.map(row => row.value)
       const labelTest = bigTest.map(row => row.label)
 
-      const maxIndex = valueTest.indexOf(Math.max(...valueTest))
+      // 가장 상위의 big category 정보 가져오기
+      const maxIndex = valueTest.indexOf(Math.max(...valueTest)) 
       const bigCate = labelTest[maxIndex]
       
       function MostCategories(element)  {
@@ -43,7 +44,9 @@ useEffect(() => {
         }
       }
       setBigCategoryItem(bigTest);
+      // 가장 상위의 big category에 대한 subcategory 내용만 저장
       setSubCategoryItem(subTest.filter(MostCategories));
+      // 빈도수 상위 5개 keyword
       setKeyWordList(response.data.keywords.slice(0,5));
   };
   fetchDatas();

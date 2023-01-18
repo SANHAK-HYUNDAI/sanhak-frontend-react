@@ -13,7 +13,6 @@ FolderList2.propTypes = {
   list: PropTypes.array.isRequired,
 };
 
-
 export default function FolderList2({title, list}) {
 
   const ListItemTest = (list.map((keyword) =>

@@ -37,16 +37,12 @@ export default function ROsimilarityTable({selectId}) {
   
   useEffect(() => {
     const fetchsimilarRO = async () => {
-      
         const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
         setsimilarRO(response.data.ros);
-
     };
 
     fetchsimilarRO();
   }, []);
-
-  console.log("ROsimilarityTable.js ",similarRO)
 
   return (
     <TableContainer component={Paper}>

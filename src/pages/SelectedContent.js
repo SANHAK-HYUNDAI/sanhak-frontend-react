@@ -7,14 +7,11 @@ export default function SelectedContent({selectId}) {
 
   // API 호출
   const [row, setRow] = useState([]);
-  
   useEffect(() => {
     const fetchOneRow = async () => {
-      
         const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
-
     fetchOneRow();
   }, []);
 

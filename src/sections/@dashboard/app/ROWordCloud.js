@@ -9,7 +9,8 @@ export default function ROWordCloud({title}) {
 
   const [ROwords, setROwords] = useState([]);
 
-useEffect(() => {
+    // API 호출
+  useEffect(() => {
   const fetchDatas = async () => {
    
       const response = await axios.get(
