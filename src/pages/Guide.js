@@ -3,10 +3,7 @@ import { useState } from 'react';
 import { Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { ProductList, GuideGrid } from '../sections/@dashboard/products';
-// mock
-import PRODUCTS from '../_mock/products';
-// import GuideGrid from '../sections/@dashboard/products';
+import { GuideGrid } from '../sections/@dashboard/products';
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
