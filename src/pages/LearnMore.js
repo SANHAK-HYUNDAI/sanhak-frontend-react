@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import { Link, useLocation } from 'react-router-dom';
 import axios from "axios";
+import Box from '@mui/material/Box';
 
 // material
 import {
@@ -21,9 +22,9 @@ import Page from '../components/Page';
 // ----------------------------------------------------------------------
 
 const columns = [
-  { field: 'cafeName', headerName: '카페 이름', width: 450},
-  { field: 'title', headerName: '제목', width: 400 },
-  { field: 'keywords', headerName: '키워드', width: 250 },
+  { field: 'cafeName', headerName: '카페 이름', width: 450, headerClassName: 'super-app-theme--header'},
+  { field: 'title', headerName: '제목', width: 400, headerClassName: 'super-app-theme--header' },
+  { field: 'keywords', headerName: '키워드', width: 250, headerClassName: 'super-app-theme--header' },
 ];
 
 export default function LearnMore({bigcategory}) {
@@ -85,17 +86,19 @@ export default function LearnMore({bigcategory}) {
         
         <Grid>
           <div style={{ height: 550, width: '100%' }}>
+          <Box sx={{ height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'}}}> 
             <DataGrid
               rows={USERLIST}
               columns={columns} 
               pageSize={pageSize}
               onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
               rowsPerPageOptions={[25, 50, 100]}
-              backgroundColor='#90EE90'
+              // backgroundColor='#90EE90',
               onSelectionModelChange={(selection) => {
               setSelectedRow(selection); // select한 CA id 값 전달
             }}        
             />
+            </Box>
           </div>
         </Grid>
       </Card>
