@@ -5,9 +5,11 @@ import axios from "axios";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
 
-export default function CAWordCloud({title, list}) {
+export default function CAWordCloud({title}) {
 
   const [CAwords, setCAwords] = useState([]);
+
+  // API 호출
 
   useEffect(() => {
     const fetchDatas = async () => {

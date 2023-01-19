@@ -13,7 +13,6 @@ FolderList.propTypes = {
   list: PropTypes.array.isRequired,
 };
 
-
 export default function FolderList({title, list}) {
 
   const ListItemTest = (list.map((sub) =>

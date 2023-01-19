@@ -24,19 +24,6 @@ export default function AfterLearnMore() {
 
   const [selectId, setSelectId] = useState(location.state.clickedcell);
 
-  // API 호출
-  const [row, setRow] = useState([]);
-
-  useEffect(() => {
-    const fetchOneRow = async () => {
-      
-        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
-        setRow(response.data);
-    };
-
-    fetchOneRow();
-  }, []);
-
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,

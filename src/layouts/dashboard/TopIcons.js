@@ -1,4 +1,3 @@
-import { useRef, useState } from 'react';
 // material
 import { IconButton } from '@mui/material';
 import OpenInNew from '@mui/icons-material/OpenInNew';
@@ -8,10 +7,6 @@ import Icon from '../../components/Iconify';
 
 
 export default function IconButtonStyles() {
-  const anchorRef = useRef(null);
-  const handleOpen = () => {
-    console.log('The link was clicked.');
-  };
 
   return (
     <>
