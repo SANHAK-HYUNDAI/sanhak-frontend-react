@@ -9,7 +9,7 @@
 
 ## Stacks
 - UI
-  - [! [Figma 협업 링크 (https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)]] (https://www.figma.com/file/Qa4fQiT92wJ6vGlQ0GPtUb/Sanhak-Prototype?node-id=0%3A1&t=Yl8BoEHGNiRIy1Nr-0) 
+  - [![Figma 협업 링크](https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white)](https://www.figma.com/file/Qa4fQiT92wJ6vGlQ0GPtUb/Sanhak-Prototype?node-id=0%3A1&t=Yl8BoEHGNiRIy1Nr-0) 
   - <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=Figma&logoColor=white">
   - https://www.figma.com/file/Qa4fQiT92wJ6vGlQ0GPtUb/Sanhak-Prototype?node-id=0%3A1&t=Yl8BoEHGNiRIy1Nr-0
 - Frontend
