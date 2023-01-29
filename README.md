@@ -1,12 +1,11 @@
 # sanhak-frontend-react
 ## Page demo
 
-- [ Dashboard ] ( src/pages/Card.js , /DashBoardApp.js )
-- [ Product ]
-- [ Search Info ] ( src/pages/SearchInfo.js , /Check.js , /ExTable.js )
-- [ RO Data ] ( src/pages/RoData.js , ../images/wordcloud.png) wordcloud 개발 필요
-- [ Naver Cafe ] ( src/pages/RoData.js , ../images/wordcloud.png) wordcloud 개발 필요
-- 업로드 페이지 추가 필요
+- [ Dashboard ]
+- [ Search Info ]
+- [ RO Data ]
+- [ Naver Cafe ]
+- [ Guide ]
 
 ## Getting started
 
