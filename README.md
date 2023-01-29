@@ -6,6 +6,11 @@
 - [ RO Data ] : Ro에 대한 정보를 Word Cloud 형태와, Top 5로 확인가능합니다. 
 - [ Naver Cafe ] : 네이버 카페에 대한 정보를 Word Cloud 형태와, Top 5로 확인가능합니다.
 - [ Guide ] : 웹 사용을 위한 가이드입니다.
+
+## Stacks
+- <img src="https://img.shields.io/badge/#61DAFB?style=for-the-badge&logo=React&logoColor=white">
+- 
+
 ## Getting started
 
 - Recommended `node js 14.x` and `npm 6+`. (suggestion v14.17.3 / v16.15.0)
