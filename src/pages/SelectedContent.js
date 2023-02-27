@@ -9,7 +9,7 @@ export default function SelectedContent({selectId}) {
   const [row, setRow] = useState([]);
   useEffect(() => {
     const fetchOneRow = async () => {
-        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
+        const response = await axios.get(`https://kw-dormitory.k-net.kr:8887/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
     fetchOneRow();

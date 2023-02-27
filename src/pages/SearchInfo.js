@@ -71,7 +71,7 @@ useEffect(() => {
   const fetchUsers = async () => {
    
       const response = await axios.get(
-        'https://kw-dormitory.k-net.kr/api/ROs/all'
+        'https://kw-dormitory.k-net.kr:8887/api/ROs/all'
       );
       setUSERLIST(response.data);
   };
