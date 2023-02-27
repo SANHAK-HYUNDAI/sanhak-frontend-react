@@ -43,7 +43,7 @@ export default function LearnMore({bigcategory}) {
   useEffect(() => {
     const fetchNaverCafe = async () => {
       
-        const response = await axios.get( 'https://kw-dormitory.k-net.kr/api/CAs/all', {params : {bigPhenom : pageTitle}});
+        const response = await axios.get( 'https://kw-dormitory.k-net.kr:8887/api/CAs/all', {params : {bigPhenom : pageTitle}});
         console.log(pageTitle);
         setUSERLIST(response.data);
     };

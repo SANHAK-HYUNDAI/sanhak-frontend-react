@@ -27,7 +27,7 @@ useEffect(() => {
   const fetchDatas = async () => {
    
       const response = await axios.get(
-        'https://kw-dormitory.k-net.kr/api/ROs/statistics'
+        'https://kw-dormitory.k-net.kr:8887/api/ROs/statistics'
       );
 
       const subTest = response.data.subCategories

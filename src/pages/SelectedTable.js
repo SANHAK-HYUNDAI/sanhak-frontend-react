@@ -64,7 +64,7 @@ export default function SelectedTable({selectId}) {
   useEffect(() => {
     const fetchOneRow = async () => {
       
-        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
+        const response = await axios.get(`https://kw-dormitory.k-net.kr:8887/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
 
