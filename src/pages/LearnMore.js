@@ -17,6 +17,7 @@ import { styled } from '@mui/material/styles';
 
 // components
 import Page from '../components/Page';
+import host from "../api/host";
 
 // ----------------------------------------------------------------------
 
@@ -25,6 +26,8 @@ const columns = [
   { field: 'title', headerName: '제목', width: 400 },
   { field: 'keywords', headerName: '키워드', width: 250 },
 ];
+
+const hostName = host;
 
 export default function LearnMore({bigcategory}) {
 
@@ -42,7 +45,7 @@ export default function LearnMore({bigcategory}) {
   useEffect(() => {
     const fetchNaverCafe = async () => {
       
-        const response = await axios.get( 'http://kw-dormitory.k-net.kr:8887/api/CAs/all', {params : {bigPhenom : pageTitle}});
+        const response = await axios.get( `${hostName}/api/CAs/all`, {params : {bigPhenom : pageTitle}});
         console.log(pageTitle);
         setUSERLIST(response.data);
     };

@@ -4,6 +4,9 @@ import { Card, CardHeader } from '@mui/material';
 import axios from "axios";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import host from "../../../api/host";
+
+const hostName = host;
 
 export default function ROWordCloud({title}) {
 
@@ -14,7 +17,7 @@ export default function ROWordCloud({title}) {
   const fetchDatas = async () => {
    
       const response = await axios.get(
-        'http://kw-dormitory.k-net.kr:8887/api/ROs/statistics'
+        `${hostName}/api/ROs/statistics`
       );
       setROwords(response.data.keywords);
   };
