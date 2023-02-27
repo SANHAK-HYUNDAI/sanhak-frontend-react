@@ -2,6 +2,7 @@
 import { Grid, Container, Stack, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
+import host from "../api/host";
 
 // components
 import Page from '../components/Page';
@@ -13,6 +14,7 @@ CAWordCloud,
 FolderList2
 } from '../sections/@dashboard/app';
 
+const hostName = host;
 // ----------------------------------------------------------------------
 
 export default function NaverCafe() {
@@ -25,7 +27,7 @@ useEffect(() => {
   const fetchDatas = async () => {
    
       const response = await axios.get(
-        'http://kw-dormitory.k-net.kr:8887/api/CAs/statistics'
+        `${hostName}/api/CAs/statistics`
       );
 
       const subTest = response.data.subCategories

@@ -8,7 +8,9 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from "axios";
+import host from "../api/host";
 
+const hostName = host;
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.root}`]: {
@@ -64,7 +66,7 @@ export default function SelectedTable({selectId}) {
   useEffect(() => {
     const fetchOneRow = async () => {
       
-        const response = await axios.get(`http://kw-dormitory.k-net.kr:8887/api/CAs/${Number(selectId)}`);
+        const response = await axios.get(`${hostName}/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
 
