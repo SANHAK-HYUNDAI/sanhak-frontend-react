@@ -15,7 +15,7 @@ export default function CAWordCloud({title}) {
     const fetchDatas = async () => {
      
         const response = await axios.get(
-          'https://kw-dormitory.k-net.kr/api/CAs/statistics'
+          'http://kw-dormitory.k-net.kr:8887/api/CAs/statistics'
         );
         setCAwords(response.data.keywords);
     };

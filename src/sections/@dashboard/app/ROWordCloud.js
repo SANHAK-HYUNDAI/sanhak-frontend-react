@@ -14,7 +14,7 @@ export default function ROWordCloud({title}) {
   const fetchDatas = async () => {
    
       const response = await axios.get(
-        'https://kw-dormitory.k-net.kr/api/ROs/statistics'
+        'http://kw-dormitory.k-net.kr:8887/api/ROs/statistics'
       );
       setROwords(response.data.keywords);
   };
