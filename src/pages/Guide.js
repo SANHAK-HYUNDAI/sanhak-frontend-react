@@ -1,12 +1,9 @@
 import { useState } from 'react';
 // material
-import { Container, Stack, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { ProductList, GuideGrid } from '../sections/@dashboard/products';
-// mock
-import PRODUCTS from '../_mock/products';
-// import GuideGrid from '../sections/@dashboard/products';
+import { GuideGrid } from '../sections/@dashboard/products';
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
@@ -27,7 +24,6 @@ export default function EcommerceShop() {
           Guide
         </Typography>
         <GuideGrid />
-        {/* <ProductList products={PRODUCTS} /> */}
       </Container>
     </Page>
   );

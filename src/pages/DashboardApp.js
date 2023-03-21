@@ -1,43 +1,14 @@
-import { faker } from '@faker-js/faker';
 // @mui
-import { useTheme } from '@mui/material/styles';
+import React from "react";
 import { Grid, Container, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import Card1 from "./MainCard/Card1";
-import Card2 from "./MainCard/Card2";
-import Card3 from "./MainCard/Card3";
-import Card4 from "./MainCard/Card4";
-import Card5 from "./MainCard/Card5";
-import Card6 from "./MainCard/Card6";
-import Card7 from "./MainCard/Card7";
-import Card8 from "./MainCard/Card8";
-import Card9 from "./MainCard/Card9";
-import Card10 from "./MainCard/Card10";
-import Card11 from "./MainCard/Card11";
-import Card12 from "./MainCard/Card12";
-import Card13 from "./MainCard/Card13";
-import Card14 from "./MainCard/Card14";
-import Card15 from "./MainCard/Card15";
-
-import Iconify from '../components/Iconify';
-// sections
-import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
-} from '../sections/@dashboard/app';
-
+import MainCard from './MainCard';
+// images
+import images from './images';
 // ----------------------------------------------------------------------
 
 export default function DashboardApp() {
-  const theme = useTheme();
 
   return (
     <Page title="Dashboard">
@@ -55,258 +26,57 @@ export default function DashboardApp() {
               border: '1px solid #BCBCBC',
             }}
           />
-
         </Typography>
 
-        <Grid container spacing={1}>
-          { /* 부품 외관  */}
-          <Grid item xs={1.6}>
-            <Card1 />
+        <Grid container spacing={1.5} rowGap={2.2}>
+          <Grid item xs={3.0}>
+           <MainCard big={"부품 외관"}  sub={['실밥 터짐/돌출', '굴곡/변형/고장','트림 벌어짐/간섭']} sheet={images.appearance}/>
+          </Grid>  
+          <Grid item xs={3.0}>
+           <MainCard big={"시트 작동불량 / 시트벨트_작동불량"} sub={['전후진', '허리지지대']} sheet={images.seataction}/>
           </Grid>
-          { /* 시트 작동  */}
-          <Grid item xs={1.6}>
-            <Card2 />
+          <Grid item xs={3.0}>
+           <MainCard big={"부품 도장"} sub={[' ','변색/벗겨짐','도금 박리/불량','오염/분진']} sheet={images.painting}/>
           </Grid>
-          { /* 시트 소음  */}
-          <Grid item xs={1.6}>
-            <Card3 />
+          <Grid item xs={3.0}>
+            <MainCard big={"작동 불량"} sub={['오작동','작동이 쉽게 됨(가벼움)','작동안됨']} sheet={images.operation}/>
+          </Grid> 
+          <Grid item xs={3.0}>
+            <MainCard big={"소음/이음"} sub={['공회전시','주행중','요철로/둔턱','작동시']} sheet={images.sound} />
           </Grid>
-          { /* 작동 불량  */}
-          <Grid item xs={1.6}>
-            <Card4 />
+          <Grid item xs={3.0}>
+           <MainCard big={"경고등 점등"} sub={['에어백','점등안됨','엔진','경고등 점등']} sheet={images.light}/>
           </Grid>
-          { /* 소음/이음  */}
-          <Grid item xs={1.6}>
-            <Card5 />
+          <Grid item xs={3.0}>
+           <MainCard big={"조립문제"} sub={['코딩불량','치합불량','들뜸/떨어짐','이종품 장착']} sheet={images.assembly} />
           </Grid>
-          { /* 냄새 과다  */}
-          <Grid item xs={1.6}>
-            <Card6 />
+          <Grid item xs={3.0}>
+           <MainCard big={"시트 작동 소음/이음"}  sub={['허리지지대', '전후진', '냉방조절','각도조절/폴딩시']} sheet={images.seatsound}/>
           </Grid>
-          { /* 조립 문제  */}
-          <Grid item xs={1.6}>
-            <Card7 />
+          <Grid item xs={3.0}>
+           <MainCard big={"기밀 불량"} sub={['이물질 유입','습기','누기','',]} sheet={images.machine}/>
           </Grid>
-          { /* 도어 개폐  */}
-          <Grid item xs={1.5}>
-            <Card8 />
+          <Grid item xs={3.0}>
+           <MainCard big={"사용/위치 불편"} sub={['작동무거움','조작어려움','승차감 불만']} sheet={images.location}/>
           </Grid>
-          { /* 기밀 불량  */}
-          <Grid item xs={1.5}>
-            <Card9 />
+          <Grid item xs={3.0}>
+           <MainCard big={"진동"} sub={['차체 진동/떨림_주행중','도어 진동/떨림_주행중','진동/떨림_주행중','']} sheet={images.vibe} />
           </Grid>
-          { /* 사용/위치  */}
-          <Grid item xs={1.5}>
-            <Card10 />
+          <Grid item xs={3.0}>
+           <MainCard big={"기타"} sub={['기타','막힘_상시','오디오/AVN 주변장치USB작동불량']} sheet={images.etc}/>
           </Grid>
-          { /* 진동  */}
-          <Grid item xs={1.5}>
-            <Card15 />
+          <Grid item sm={3.0}>
+           <MainCard big={"도어 개폐 불량"} sub={['','개폐 어려움','개폐 안됨','']} sheet={images.door} />
           </Grid>
-          { /* 기타  */}
-          <Grid item xs={1.5}>
-            <Card13 />
+          <Grid item sm={3.0}>
+          <MainCard big={"냄새과다"} sub={['','실내발생','배기가스','']} sheet={images.smell}/>
           </Grid>
-          { /* 부품 도장  */}
-          <Grid item sm={1.3}>
-            <Card11 />
+          <Grid item sm={3.0}>
+           <MainCard big={"녹 발생"} sub={['','관통 부식','녹 발생','']} sheet={images.rust}/>
           </Grid>
-          { /* 경고등  */}
-          <Grid item sm={1.2}>
-            <Card14 />
-          </Grid>
-          { /* 녹 발생  */}
-          <Grid item sm={1.2}>
-            <Card12 />
-          </Grid>
-        </Grid>
-
-
-        {/*
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Weekly Sales" total={714000} icon={'ant-design:android-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="New Users" total={1352831} color="info" icon={'ant-design:apple-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Item Orders" total={1723315} color="warning" icon={'ant-design:windows-filled'} />
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <AppWidgetSummary title="Bug Reports" total={234} color="error" icon={'ant-design:bug-filled'} />
-          </Grid> */}
-
-        {/* 차트
-          <Grid item xs={12} md={6} lg={8}>
-            <AppWebsiteVisits
-              title="Website Visits"
-              subheader="(+43%) than last year"
-              chartLabels={[
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
-              ]}
-              chartData={[
-                {
-                  name: 'Team A',
-                  type: 'column',
-                  fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
-                },
-                {
-                  name: 'Team B',
-                  type: 'area',
-                  fill: 'gradient',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Team C',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-                },
-              ]}
-            />
-          </Grid>
-            */}
-
-        {/* <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentVisits
-              title="Current Visits"
-              chartData={[
-                { label: 'America', value: 4344 },
-                { label: 'Asia', value: 5435 },
-                { label: 'Europe', value: 1443 },
-                { label: 'Africa', value: 4443 },
-              ]}
-              chartColors={[
-                theme.palette.primary.main,
-                theme.palette.chart.blue[0],
-                theme.palette.chart.violet[0],
-                theme.palette.chart.yellow[0],
-              ]}
-            />
-          </Grid> */}
-
-        {/* 차트2
-          <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates
-              title="Conversion Rates"
-              subheader="(+43%) than last year"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
-            />
-          </Grid>
-            */}
-
-        {/*
-          <Grid item xs={12} md={6} lg={4}>
-            <AppCurrentSubject
-              title="Current Subject"
-              chartLabels={['English', 'History', 'Physics', 'Geography', 'Chinese', 'Math']}
-              chartData={[
-                { name: 'Series 1', data: [80, 50, 30, 40, 100, 20] },
-                { name: 'Series 2', data: [20, 30, 40, 80, 20, 80] },
-                { name: 'Series 3', data: [44, 76, 78, 13, 43, 10] },
-              ]}
-              chartColors={[...Array(6)].map(() => theme.palette.text.secondary)}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppNewsUpdate
-              title="News Update"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: faker.name.jobTitle(),
-                description: faker.name.jobTitle(),
-                image: `/static/mock-images/covers/cover_${index + 1}.jpg`,
-                postedAt: faker.date.recent(),
-              }))}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppOrderTimeline
-              title="Order Timeline"
-              list={[...Array(5)].map((_, index) => ({
-                id: faker.datatype.uuid(),
-                title: [
-                  '1983, orders, $4220',
-                  '12 Invoices have been paid',
-                  'Order #37745 from September',
-                  'New order placed #XF-2356',
-                  'New order placed #XF-2346',
-                ][index],
-                type: `order${index + 1}`,
-                time: faker.date.past(),
-              }))}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={4}>
-            <AppTrafficBySite
-              title="Traffic by Site"
-              list={[
-                {
-                  name: 'FaceBook',
-                  value: 323234,
-                  icon: <Iconify icon={'eva:facebook-fill'} color="#1877F2" width={32} height={32} />,
-                },
-                {
-                  name: 'Google',
-                  value: 341212,
-                  icon: <Iconify icon={'eva:google-fill'} color="#DF3E30" width={32} height={32} />,
-                },
-                {
-                  name: 'Linkedin',
-                  value: 411213,
-                  icon: <Iconify icon={'eva:linkedin-fill'} color="#006097" width={32} height={32} />,
-                },
-                {
-                  name: 'Twitter',
-                  value: 443232,
-                  icon: <Iconify icon={'eva:twitter-fill'} color="#1C9CEA" width={32} height={32} />,
-                },
-              ]}
-            />
-          </Grid>
-
-          <Grid item xs={12} md={6} lg={8}>
-            <AppTasks
-              title="Tasks"
-              list={[
-                { id: '1', label: 'Create FireStone Logo' },
-                { id: '2', label: 'Add SCSS and JS files if required' },
-                { id: '3', label: 'Stakeholder Meeting' },
-                { id: '4', label: 'Scoping & Estimations' },
-                { id: '5', label: 'Sprint Showcase' },
-              ]}
-            />
-          </Grid>
-            */}
-      </Container>
-    </Page>
-  );
+        </Grid> 
+          </Container>
+          </Page>
+      );
+  
 }

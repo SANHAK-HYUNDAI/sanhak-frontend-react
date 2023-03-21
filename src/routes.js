@@ -11,6 +11,9 @@ import Register from './pages/Register';
 import Guide from './pages/Guide';
 import DashboardApp from './pages/DashboardApp';
 import NaverCafe from './pages/NaverCafe';
+// LearnMore 페이지 추가 
+import LearnMore from './pages/LearnMore';
+import AfterLearnMore from './pages/AfterLearnMore';
 import Upload from './pages/Upload';
 
 // ----------------------------------------------------------------------
@@ -26,6 +29,7 @@ export default function Router() {
         { path: 'Guide', element: <Guide /> },
         { path: 'RoData', element: <RoData /> },
         { path: 'NaverCafe', element: <NaverCafe /> },
+        { path: '/dashboard/app/LearnMore', element: <LearnMore /> },
         { path: 'Upload', element: <Upload />}
       ],
     },
@@ -40,10 +44,11 @@ export default function Router() {
     {
       path: '/',
       element: <LogoOnlyLayout />,
-      children: [
+      children: [ 
         { path: '/', element: <Navigate to="/dashboard/app" /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },
+        { path: '/LearnMore/information' , element: <AfterLearnMore /> },
       ],
     },
     {

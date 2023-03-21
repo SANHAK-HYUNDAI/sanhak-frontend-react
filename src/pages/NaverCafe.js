@@ -1,82 +1,91 @@
-import { Link as RouterLink } from 'react-router-dom';
 // material
-import { Grid, Button, Container, Stack, Typography } from '@mui/material';
+import { Grid, Container, Stack, Typography } from '@mui/material';
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
+import host from "../api/host";
+
 // components
 import Page from '../components/Page';
-import Iconify from '../components/Iconify';
-import { BlogPostCard, BlogPostsSort, BlogPostsSearch } from '../sections/@dashboard/blog';
-// mock
-import POSTS from '../_mock/blog';
-import wordcloud from '../images/wordcloud.PNG';
+
 import {
-  AppTasks,
-  AppNewsUpdate,
-  AppOrderTimeline,
-  AppCurrentVisits,
-  AppWebsiteVisits,
-  AppTrafficBySite,
-  AppWidgetSummary,
-  AppCurrentSubject,
-  AppConversionRates,
+AppConversionRates,
+FolderList,
+CAWordCloud,
+FolderList2
 } from '../sections/@dashboard/app';
-// ----------------------------------------------------------------------
 
-const SORT_OPTIONS = [
-  { value: 'latest', label: 'Latest' },
-  { value: 'popular', label: 'Popular' },
-  { value: 'oldest', label: 'Oldest' },
-];
-
+const hostName = host;
 // ----------------------------------------------------------------------
 
 export default function NaverCafe() {
-  return (
-    <Page title="Dashboard: NaverCafe">
-      <Container>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
-          <Typography variant="h4" gutterBottom>
-            Naver cafe
-          </Typography>
 
-          {/*
-          <Button variant="contained" component={RouterLink} to="#" startIcon={<Iconify icon="eva:plus-fill" />}>
-            New Post
-          </Button>
-          */}
-          
-        </Stack>
-        <img src = {wordcloud} alt="wordcloud" width="400" height="350" />
-        <Grid item xs={12} md={6} lg={8}>
-            <AppConversionRates
-              title= "Complaining Datas"
-              subheader="(+43%) than last month"
-              chartData={[
-                { label: 'Italy', value: 400 },
-                { label: 'Japan', value: 430 },
-                { label: 'China', value: 448 },
-                { label: 'Canada', value: 470 },
-                { label: 'France', value: 540 },
-                { label: 'Germany', value: 580 },
-                { label: 'South Korea', value: 690 },
-                { label: 'Netherlands', value: 1100 },
-                { label: 'United States', value: 1200 },
-                { label: 'United Kingdom', value: 1380 },
-              ]}
-            />
-          </Grid>
-        {/*
-        <Stack mb={5} direction="row" alignItems="center" justifyContent="space-between">
-          <BlogPostsSearch posts={POSTS} />
-          <BlogPostsSort options={SORT_OPTIONS} />
-        </Stack>
+  const [BigCategoryItem, setBigCategoryItem] = useState([]);
+  const [SubCategoryItem, setSubCategoryItem] = useState([]);
+  const [KeyWordList, setKeyWordList] = useState([]);
 
-        <Grid container spacing={3}>
-          {POSTS.map((post, index) => (
-            <BlogPostCard key={post.id} post={post} index={index} />
-          ))}
-        </Grid>
-          */}
-      </Container>
-    </Page>
-  );
+useEffect(() => {
+  const fetchDatas = async () => {
+   
+      const response = await axios.get(
+        `${hostName}/api/CAs/statistics`
+      );
+
+      const subTest = response.data.subCategories
+      const bigTest = response.data.bigCategories
+
+      const valueTest = bigTest.map(row => row.value)
+      const labelTest = bigTest.map(row => row.label)
+
+      // 가장 상위의 big category 정보 가져오기
+      const maxIndex = valueTest.indexOf(Math.max(...valueTest)) 
+      const bigCate = labelTest[maxIndex]
+      
+      function MostCategories(element)  {
+        if(element.bigCateName === bigCate)  {
+          return true;
+        }
+      }
+      setBigCategoryItem(bigTest);
+      // 가장 상위의 big category에 대한 subcategory 내용만 저장
+      setSubCategoryItem(subTest.filter(MostCategories));
+      // 빈도수 상위 5개 keyword
+      setKeyWordList(response.data.keywords.slice(0,5));
+  };
+  fetchDatas();
+}, []);
+
+return (
+<Page title="Dashboard: NaverCafe">
+<Container>
+  <Stack direction="row" alignItems="center" justifyContent="space-between" mb={5}>
+    <Typography variant="h4" gutterBottom>
+      Naver Cafe data
+    </Typography>
+  </Stack>
+
+  <Grid container spacing={2}>
+    <Grid item xs={15} md={8} lg={8}>
+      <CAWordCloud title = "WordCloud"/>
+      </Grid>
+
+      <Grid item xs={15} md={6} lg={4}>
+        <FolderList2 title = "Top Keywords" list = {KeyWordList}/>
+      </Grid>
+  </Grid>
+  
+  <Grid container spacing={2}>
+    <Grid item xs={15} md={8} lg={8}>
+      <AppConversionRates
+        title="Big Categories" chartData = {BigCategoryItem}
+      />
+    </Grid>
+    
+    <Grid item xs={15} md={6} lg={4}>
+      <FolderList title="Sub Categories" list = {SubCategoryItem}/>
+    </Grid>
+
+  </Grid>
+</Container>
+</Page>
+);
 }

@@ -7,9 +7,8 @@ import repair from "../../../images/GuideIcon/repair.png";
 import search from "../../../images/GuideIcon/search.png";
 import home from "../../../images/GuideIcon/home.png";
 import MakeTable from './VehicleTable';
-// import MakeTable2 from './VehicleTable2';
-// import MakeTable3 from './VehicleTable3';
 import './index.css';
+// components
 // ----------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({

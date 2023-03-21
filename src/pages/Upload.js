@@ -3,13 +3,10 @@ import { useState } from 'react';
 import { Container, Stack, Typography } from '@mui/material';
 // components
 import Page from '../components/Page';
-import { ProductList, GuideGrid } from '../sections/@dashboard/products';
-// mock
-import PRODUCTS from '../_mock/products';
-// import GuideGrid from '../sections/@dashboard/products';
+import { UploadGrid } from '../sections/@dashboard/products';
 // ----------------------------------------------------------------------
 
-export default function EcommerceShop() {
+export default function Upload() {
   const [openFilter, setOpenFilter] = useState(false);
 
   const handleOpenFilter = () => {
@@ -26,8 +23,7 @@ export default function EcommerceShop() {
         <Typography variant="h4" sx={{ mb: 5 }}>
           Upload
         </Typography>
-        <GuideGrid />
-        {/* <ProductList products={PRODUCTS} /> */}
+        <UploadGrid />
       </Container>
     </Page>
   );
