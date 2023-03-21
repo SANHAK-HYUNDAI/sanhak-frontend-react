@@ -22,9 +22,9 @@ import Page from '../components/Page';
 // ----------------------------------------------------------------------
 
 const columns = [
-  { field: 'cafeName', headerName: '카페 이름', width: 450, headerClassName: 'super-app-theme--header'},
-  { field: 'title', headerName: '제목', width: 400, headerClassName: 'super-app-theme--header' },
-  { field: 'keywords', headerName: '키워드', width: 250, headerClassName: 'super-app-theme--header' },
+  { field: 'cafeName', headerName: '카페 이름', width: 450},
+  { field: 'title', headerName: '제목', width: 400},
+  { field: 'keywords', headerName: '키워드', width: 250},
 ];
 
 export default function LearnMore({bigcategory}) {

@@ -22,7 +22,7 @@ import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
 // ----------------------------------------------------------------------
 
 const TABLE_HEAD = [
-  { id: 'vehicleType', label: '차종', alignRight: false },
+  { id: 'vehicleType', label: '차종', alignRight: false},
   { id: 'bigPhenom', label: '현상', alignRight: false },
   { id: 'specialNote', label: '특이사항', alignRight: false },
   { id: 'location', label: '위치', alignRight: false },
