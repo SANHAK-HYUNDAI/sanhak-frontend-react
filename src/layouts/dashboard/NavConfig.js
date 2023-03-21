@@ -27,6 +27,11 @@ const navConfig = [
     icon: getIcon('eva:file-text-fill'),
   },
   {
+    title: 'Upload',
+    path: '/dashboard/Upload',
+    icon: getIcon('material-symbols:drive-folder-upload-outline-rounded'),
+  },
+  {
     title: 'Guide',
     path: '/dashboard/Guide',
     icon: getIcon('ep:guide'),

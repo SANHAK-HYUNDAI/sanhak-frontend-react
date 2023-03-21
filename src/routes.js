@@ -11,6 +11,7 @@ import Register from './pages/Register';
 import Guide from './pages/Guide';
 import DashboardApp from './pages/DashboardApp';
 import NaverCafe from './pages/NaverCafe';
+import Upload from './pages/Upload';
 
 // ----------------------------------------------------------------------
 
@@ -24,7 +25,8 @@ export default function Router() {
         { path: 'Search', element: <Search /> },
         { path: 'Guide', element: <Guide /> },
         { path: 'RoData', element: <RoData /> },
-        { path: 'NaverCafe', element: <NaverCafe /> }
+        { path: 'NaverCafe', element: <NaverCafe /> },
+        { path: 'Upload', element: <Upload />}
       ],
     },
     {
