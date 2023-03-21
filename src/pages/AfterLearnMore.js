@@ -1,6 +1,5 @@
 import { useState, useEffect, React } from 'react';
 import { useLocation } from 'react-router-dom';
-import axios from 'axios';
 // material
 import {
   Container,

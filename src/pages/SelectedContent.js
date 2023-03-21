@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import host from '../api/host';
+
+const hostName = host;
 
 export default function SelectedContent({selectId}) {
 
@@ -9,7 +12,7 @@ export default function SelectedContent({selectId}) {
   const [row, setRow] = useState([]);
   useEffect(() => {
     const fetchOneRow = async () => {
-        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
+        const response = await axios.get(`${hostName}/api/CAs/${Number(selectId)}`);
         setRow(response.data);
     };
     fetchOneRow();

@@ -4,6 +4,9 @@ import { Card, CardHeader } from '@mui/material';
 import axios from "axios";
 import "tippy.js/dist/tippy.css";
 import "tippy.js/animations/scale.css";
+import host from "../../../api/host";
+
+const hostName = host;
 
 export default function CAWordCloud({title}) {
 
@@ -15,7 +18,7 @@ export default function CAWordCloud({title}) {
     const fetchDatas = async () => {
      
         const response = await axios.get(
-          'https://kw-dormitory.k-net.kr/api/CAs/statistics'
+          `${hostName}/api/CAs/statistics`
         );
         setCAwords(response.data.keywords);
     };

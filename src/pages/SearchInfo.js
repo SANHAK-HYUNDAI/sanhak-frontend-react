@@ -18,6 +18,9 @@ import {
 import Page from '../components/Page';
 import SearchNotFound from '../components/SearchNotFound';
 import { UserListHead, UserListToolbar } from '../sections/@dashboard/user';
+import host from '../api/host';
+
+const hostName = host;
 
 // ----------------------------------------------------------------------
 
@@ -71,7 +74,7 @@ useEffect(() => {
   const fetchUsers = async () => {
    
       const response = await axios.get(
-        'https://kw-dormitory.k-net.kr/api/ROs/all'
+        `${hostName}/api/ROs/all`
       );
       setUSERLIST(response.data);
   };

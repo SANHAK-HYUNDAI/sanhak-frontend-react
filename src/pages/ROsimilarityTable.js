@@ -8,6 +8,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import axios from "axios";
+import host from '../api/host';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -30,6 +31,8 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
   },
 }));
 
+const hostName = host;
+
 export default function ROsimilarityTable({selectId}) {
 
   // API 호출
@@ -37,7 +40,7 @@ export default function ROsimilarityTable({selectId}) {
   
   useEffect(() => {
     const fetchsimilarRO = async () => {
-        const response = await axios.get(`https://kw-dormitory.k-net.kr/api/CAs/${Number(selectId)}`);
+        const response = await axios.get(`${hostName}/api/CAs/${Number(selectId)}`);
         setsimilarRO(response.data.ros);
     };
 
