@@ -89,7 +89,7 @@ export default function LearnMore({bigcategory}) {
         
         <Grid>
           <div style={{ height: 550, width: '100%' }}>
-          <Box sx={{ margin:'20px', height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'}}}> 
+          <Box sx={{borderRadius:2, margin:'20px', height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'}}}> 
             <DataGrid
               rows={USERLIST}
               columns={columns} 
