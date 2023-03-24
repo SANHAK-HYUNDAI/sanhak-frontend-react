@@ -74,7 +74,7 @@ return (
   </Grid>
   
   <Grid container spacing={2}>
-    <Grid item xs={15} md={8} lg={8}>
+    <Grid item xs={15} md={8} lg={8} marginTop={2}>
       <AppConversionRates
         title="Big Categories" chartData = {BigCategoryItem}
       />

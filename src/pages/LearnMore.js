@@ -74,21 +74,18 @@ export default function LearnMore({bigcategory}) {
           </Typography>
       
         <Button variant="contained" size = "large" component={Link} to ="/LearnMore/information" state={{ clickedcell: selectedRow}} > 유사 RO정보 확인</Button>
-
         </Stack>
         <Card>
       
         
         <Grid margin={3} marginBottom={10}>
           <div style={{ height: 550, width: '100%' }}>
-          <Box sx={{borderRadius:2, height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'} ,
-        '& .MuiDataGrid-virtualScroller::-webkit-scrollbar': {
-          width: '0.2em'}}}>
+          <Box sx={{ borderRadius:4, height: '100%', width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'} ,
+        '& .MuiDataGrid-virtualScroller::-webkit-scrollbar': {width: '0.2em'}}}>
           <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
               Naver Cafe Data
             </Typography> 
-            <DataGrid
-            
+            <DataGrid 
               rows={USERLIST}
               columns={columns} 
               pageSize={pageSize}
