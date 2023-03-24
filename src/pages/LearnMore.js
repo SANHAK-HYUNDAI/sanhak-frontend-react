@@ -77,20 +77,18 @@ export default function LearnMore({bigcategory}) {
 
         </Stack>
         <Card>
-        <Grid container rowSpacing={4} columnSpacing={{ sm: 10, md: 10 }}>
-          <Grid item xs={20}> 
-          <Item elevation={4}>
-            <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
-              Naver Cafe Data
-            </Typography>
-          </Item>
-          </Grid>
-        </Grid>
+      
         
-        <Grid>
+        <Grid margin={3} marginBottom={10}>
           <div style={{ height: 550, width: '100%' }}>
-          <Box sx={{borderRadius:2, margin:'20px', height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'}}}> 
+          <Box sx={{borderRadius:2, height: '100%',width: '100%',"& .MuiDataGrid-columnHeaders": {backgroundColor: '#90EE90'} ,
+        '& .MuiDataGrid-virtualScroller::-webkit-scrollbar': {
+          width: '0.2em'}}}>
+          <Typography variant="h4" gutterBottom style={{color:'#000000',  margin:'20px', marginLeft:'10px'}}>
+              Naver Cafe Data
+            </Typography> 
             <DataGrid
+            
               rows={USERLIST}
               columns={columns} 
               pageSize={pageSize}
