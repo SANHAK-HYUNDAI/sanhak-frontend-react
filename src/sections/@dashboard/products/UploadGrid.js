@@ -1,6 +1,7 @@
 // material
 import { styled } from '@mui/material/styles';
-import { Grid, Paper, Typography } from '@mui/material';
+import { Grid, Paper, Typography, Container,Stack } from '@mui/material';
+import FileUploadForm from './FileUploadForm'
 // components
 import './index.css';
 // components
@@ -18,12 +19,16 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Upload() {
   return (
-      <Grid item xs={12}>
-        <Item elevation={4}>
-          <Typography variant="h5" sx = {{ margin : 2 }}gutterBottom>
-            File upload
-          </Typography>
-        </Item>
+    <Container>
+    <Grid container spacing={2}>
+      <Grid item xs={10} md={5} lg={6}>
+        <FileUploadForm title="CA Data"/>
       </Grid>
+      <Grid item xs={10} md={5} lg={6}>
+        <FileUploadForm title="RO Data"/>
+      </Grid>
+    
+    </Grid>
+    </Container>
   );
 }

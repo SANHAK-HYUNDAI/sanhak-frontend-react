@@ -7,15 +7,7 @@ import { UploadGrid } from '../sections/@dashboard/products';
 // ----------------------------------------------------------------------
 
 export default function Upload() {
-  const [openFilter, setOpenFilter] = useState(false);
-
-  const handleOpenFilter = () => {
-    setOpenFilter(true);
-  };
-
-  const handleCloseFilter = () => {
-    setOpenFilter(false);
-  };
+  
 
   return (
     <Page title="Dashboard: Upload">
