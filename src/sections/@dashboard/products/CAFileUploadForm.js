@@ -8,6 +8,7 @@ const hostName = host;
 
 export default function CAFileUploadForm({title}) {
   const [file, setFile] = useState([]);
+  const [visible, setVisible] = useState(false);
 
   /* API 호출 방식
   useEffect(() => {
@@ -22,6 +23,10 @@ export default function CAFileUploadForm({title}) {
     fetchDatas();
   }, []); 
   */
+
+  function handleClear(){
+    axios.get(`${hostName}/upload/clear`)
+  }
 
   function handleSend(){
     const fd = new FormData();
@@ -43,6 +48,10 @@ export default function CAFileUploadForm({title}) {
   useEffect(() => {
     if (file) {
       console.log("CA:",file);
+      setVisible(true);
+    }
+    else{
+      setVisible(false);
     }
   }, [file]);
 
@@ -53,7 +62,10 @@ export default function CAFileUploadForm({title}) {
         <FileUpload value={file} onChange={setFile} multiple={false} />
       </Grid>
       <Grid sx={{mb:2}} position="relative" left="45%" right="45%" transform={("-45%","-45%")}>
-        <Button onClick={()=>handleSend()}>Select</Button>
+        <Button hidden={!visible} onClick={()=>handleSend()}>Select</Button>
+      </Grid>
+      <Grid sx={{mb:2}} position="relative" left="45%" right="45%" transform={("-45%","-45%")}>
+        <Button onClick={()=>handleClear()}>Clear</Button>
       </Grid>
     </Card>
     

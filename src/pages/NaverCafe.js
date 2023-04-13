@@ -33,6 +33,8 @@ useEffect(() => {
       const subTest = response.data.subCategories
       const bigTest = response.data.bigCategories
 
+      console.log("naver cafe subTest", subTest)
+
       const valueTest = bigTest.map(row => row.value)
       const labelTest = bigTest.map(row => row.label)
 
