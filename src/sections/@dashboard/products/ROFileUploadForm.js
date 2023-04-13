@@ -11,7 +11,8 @@ export default function ROFileUploadForm({title}) {
 
   function handleSend(){
     const fd = new FormData();
-    Object.values(file).forEach((file) => fd.append("file",file))
+    // key 값 지정
+    fd.append("ro",file);
 
     axios.post(`${hostName}/upload/ro`, fd, {
       headers : { 

@@ -30,7 +30,8 @@ export default function CAFileUploadForm({title}) {
 
   function handleSend(){
     const fd = new FormData();
-    Object.values(file).forEach((file) => fd.append("file",file))
+    // key 값 지정
+    fd.append("ca",file);
 
     axios.post(`${hostName}/upload/ca`, fd, {
       headers : { 
