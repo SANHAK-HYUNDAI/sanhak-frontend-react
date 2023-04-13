@@ -1,7 +1,8 @@
 // material
 import { styled } from '@mui/material/styles';
 import { Grid, Paper, Typography, Container,Stack } from '@mui/material';
-import FileUploadForm from './FileUploadForm'
+import CAFileUploadForm from './CAFileUploadForm'
+import ROFileUploadForm from './ROFileUploadForm'
 // components
 import './index.css';
 // components
@@ -22,10 +23,10 @@ export default function Upload() {
     <Container>
     <Grid container spacing={2}>
       <Grid item xs={10} md={5} lg={6}>
-        <FileUploadForm title="CA Data"/>
+        <CAFileUploadForm title="CA Data"/>
       </Grid>
       <Grid item xs={10} md={5} lg={6}>
-        <FileUploadForm title="RO Data"/>
+        <ROFileUploadForm title="RO Data"/>
       </Grid>
     
     </Grid>
