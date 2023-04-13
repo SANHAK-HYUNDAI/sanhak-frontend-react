@@ -8,12 +8,17 @@ const hostName = host;
 
 export default function ROFileUploadForm({title}) {
   const [file, setFile] = useState([]);
+  const [visible, setVisible] = useState(false);
+
+  function handleClear() {
+    setFile([]);
+  }
 
   function handleSend(){
     const fd = new FormData();
     // key 값 지정
-    fd.append("ro",file);
-
+    Object.values(file).forEach((file) => fd.append("ro",file))
+    
     axios.post(`${hostName}/upload/ro`, fd, {
       headers : { 
         'Content-Type' : 'multipart/form-data'
@@ -28,8 +33,12 @@ export default function ROFileUploadForm({title}) {
   }
 
   useEffect(() => {
-    if (file) {
-      console.log("RO:",file);
+    console.log(file)
+    if (file.length === 0) {
+      setVisible(false);
+    }
+    else{
+      setVisible(true);
     }
   }, [file]);
 
@@ -39,10 +48,20 @@ export default function ROFileUploadForm({title}) {
       <Grid sx={{m:5 ,mb:2}}>
         <FileUpload value={file} onChange={setFile} multiple={false} />
       </Grid>
+      {visible ? 
       <Grid sx={{mb:2}} position="relative" left="45%" right="45%" transform={("-45%","-45%")}>
         <Button onClick={()=>handleSend()}>Select</Button>
       </Grid>
+      : <></>}
+      {visible ?
+      <Grid sx={{mb:2}} position="relative" left="45%" right="45%" transform={("-45%","-45%")}>
+        <Button onClick={()=>handleClear()}>Clear</Button>
+      </Grid> :
+      <></>
+      }
+      
     </Card>
+    
   );
 
 }
