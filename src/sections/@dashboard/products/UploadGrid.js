@@ -1,11 +1,12 @@
 // material
 import { styled } from '@mui/material/styles';
 import { Grid, Paper, Typography, Container,Stack } from '@mui/material';
+// component
 import CAFileUploadForm from './CAFileUploadForm'
 import ROFileUploadForm from './ROFileUploadForm'
-// components
+// css
 import './index.css';
-// components
+
 // ----------------------------------------------------------------------
 
 const Item = styled(Paper)(({ theme }) => ({
