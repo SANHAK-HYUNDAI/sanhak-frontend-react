@@ -30,7 +30,6 @@ export default function CAFileUploadForm({title}) {
       headers : { 
         'Content-Type' : 'multipart/form-data'
       },
-      timeout: 50000 // 50초
     })
     .then((response) => {
       console.log(response.data);
